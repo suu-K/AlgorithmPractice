@@ -1,5 +1,5 @@
 /*
-문제 소풍(https://algospot.com/judge/problem/read/PICNIC)
+문제 : 소풍(PICNIC)(https://algospot.com/judge/problem/read/PICNIC)
  학생 수와 각 학생들이 서로 친구인지에 대한 여부가 주어졌을 때 각 학생들끼리 짝을 지을 수 있는 경우의 수를 구하는 프로그램을 작성하지오
 
 입력

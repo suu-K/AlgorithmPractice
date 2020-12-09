@@ -1,5 +1,5 @@
 /*
-문제 게임판 덮기(https://algospot.com/judge/problem/read/BOARDCOVER)
+문제 : 게임판 덮기(BORARDCOVER)(https://algospot.com/judge/problem/read/BOARDCOVER)
 H*W 크기의 게임판이 흰색과 검정색으로 이루어져 있다. 이떄 3칸으로 이루어진 L모양의 블럭으로 흰색칸을 가득 채울 수 있는 방법의 수
 
 입력
