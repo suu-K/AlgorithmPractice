@@ -24,7 +24,6 @@ int main() {
 	cache[2] = glass[1] + glass[2];
 	cache[3] = max(cache[2], glass[1] + glass[3]);
 	cache[3] = max(cache[3], glass[2] + glass[3]);
-
 	for (int i = 4; i <= n; i++) {
 		cache[i] = max(cache[i - 1], cache[i - 2] + glass[i]);
 		cache[i] = max(cache[i], cache[i - 3] + glass[i - 1] + glass[i]);
