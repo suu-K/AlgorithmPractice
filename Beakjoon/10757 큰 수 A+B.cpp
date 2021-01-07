@@ -1,8 +1,8 @@
-/*
-���� : ū �� A+B(https://www.acmicpc.net/problem/10757)
+﻿/*
+문제 : 큰 수 A+B(https://www.acmicpc.net/problem/10757)
 
-Ǯ��
-	�Է����� �־����� ���� �ڸ����� �Ϲ����� �ڷ����� �޾Ƶ��� �� �ִ� ũ�⺸�� ũ�Ƿ� �迭�� �̿��� ����� �ؾ� �Ѵ�.
+풀이
+	입력으로 주어지는 수의 자릿수가 일반적인 자료형이 받아들일 수 있는 크기보다 크므로 배열을 이용해 계산을 해야 한다.
  */
 
 #include <iostream>

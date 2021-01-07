@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : ÇÏ³ëÀÌ Å¾ ÀÌµ¿ ¼ø¼­(https://www.acmicpc.net/problem/11729)
+ï»¿/*
+ë¬¸ì œ : í•˜ë…¸ì´ íƒ‘ ì´ë™ ìˆœì„œ(https://www.acmicpc.net/problem/11729)
  */
 
 #include <iostream>
@@ -7,15 +7,15 @@
 
 using namespace std;
 
-void hanoi(int a, int b, int c, int n) {	//n°³ÀÇ ¿øÆÇÀ» a¸·´ë¿¡¼­ c¸·´ë·Î ¿Å±â´Â ÇÔ¼ö
+void hanoi(int a, int b, int c, int n) {	//nê°œì˜ ì›íŒì„ aë§‰ëŒ€ì—ì„œ cë§‰ëŒ€ë¡œ ì˜®ê¸°ëŠ” í•¨ìˆ˜
 	if (n == 1) {
 		printf("\n%d %d", a, c);
 		return;
 	}
 
-	hanoi(a, c, b, n - 1);	//a¿¡¼­ b·Î n-1°³¸¦ ¿Å±ä´Ù.
-	printf("\n%d %d", a, c);		//a¿¡¼­ c·Î 1°³¸¦ ¿Å±ä´Ù.
-	hanoi(b, a, c, n - 1);	//b¿¡¼­ c·Î n-1°³¸¦ ¿Å±ä´Ù.
+	hanoi(a, c, b, n - 1);	//aì—ì„œ bë¡œ n-1ê°œë¥¼ ì˜®ê¸´ë‹¤.
+	printf("\n%d %d", a, c);		//aì—ì„œ cë¡œ 1ê°œë¥¼ ì˜®ê¸´ë‹¤.
+	hanoi(b, a, c, n - 1);	//bì—ì„œ cë¡œ n-1ê°œë¥¼ ì˜®ê¸´ë‹¤.
 	return;
 }
 

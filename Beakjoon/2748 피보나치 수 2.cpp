@@ -1,8 +1,8 @@
-/*
-¹®Á¦ : ÇÇº¸³ªÄ¡ ¼ö 2(https://www.acmicpc.net/problem/2748)
+ï»¿/*
+ë¬¸ì œ : í”¼ë³´ë‚˜ì¹˜ ìˆ˜ 2(https://www.acmicpc.net/problem/2748)
 
-Ç®ÀÌ
-	ÁÖ¾îÁö´ÂnÀÌ Ä¿Áö¸é 4¹ÙÀÌÆ®ÀÇ intÇüÀ¸·Î´Â ¸ðµÎ ´ã¾Æ³¾ ¼ö ¾øÀ¸¹Ç·Î long longÀ» ÀÌ¿ëÇß´Ù.
+í’€ì´
+	ì£¼ì–´ì§€ëŠ”nì´ ì»¤ì§€ë©´ 4ë°”ì´íŠ¸ì˜ intí˜•ìœ¼ë¡œëŠ” ëª¨ë‘ ë‹´ì•„ë‚¼ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ long longì„ ì´ìš©í–ˆë‹¤.
  */
 
 #include <iostream>

@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : Á¤¼ö N°³ÀÇ ÇÕ (https://www.acmicpc.net/problem/15596)
+ï»¿/*
+ë¬¸ì œ : ì •ìˆ˜ Nê°œì˜ í•© (https://www.acmicpc.net/problem/15596)
 */
 
 #include <vector>

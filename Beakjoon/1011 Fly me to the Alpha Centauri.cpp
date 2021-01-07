@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : Fly me to the Alpha Centauri(https://www.acmicpc.net/problem/1011)
+ï»¿/*
+ë¬¸ì œ : Fly me to the Alpha Centauri(https://www.acmicpc.net/problem/1011)
  */
 
 #include <iostream>

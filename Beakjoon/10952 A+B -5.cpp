@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : A+B -5(https://www.acmicpc.net/problem/10952)
+ï»¿/*
+ë¬¸ì œ : A+B -5(https://www.acmicpc.net/problem/10952)
 */
 
 #include <iostream>

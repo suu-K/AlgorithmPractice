@@ -1,5 +1,5 @@
-/*
-πÆ¡¶ : RGB∞≈∏Æ(https://www.acmicpc.net/problem/1149)
+Ôªø/*
+Î¨∏Ï†ú : RGBÍ±∞Î¶¨(https://www.acmicpc.net/problem/1149)
  */
 
 #include <iostream>
@@ -11,7 +11,7 @@ vector<vector<int>> v;
 vector<vector<int>> cache(1000, vector<int>(3, -1));
 int n = 0;
 
-int price(int idx, int color) {	//0¿Ã∏È red, 1∏È green, 2¿Ã∏È blue
+int price(int idx, int color) {	//0Ïù¥Î©¥ red, 1Î©¥ green, 2Ïù¥Î©¥ blue
 	if (idx == n)
 		return 0;
 

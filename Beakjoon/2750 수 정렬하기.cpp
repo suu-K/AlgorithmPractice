@@ -1,8 +1,8 @@
-/*
-¹®Á¦ : ¼ö Á¤·ÄÇÏ±â(https://www.acmicpc.net/problem/2750)
+ï»¿/*
+ë¬¸ì œ : ìˆ˜ ì •ë ¬í•˜ê¸°(https://www.acmicpc.net/problem/2750)
 
- Ç®ÀÌ
-	ÀÔ·ÂÀ¸·Î ÁÖ¾îÁø ¼öÀÇ °³¼ö°¡ ºñ±³Àû ÀûÀ¸¹Ç·Î O(n^2)ÀÇ ½Ã°£º¹Àâµµ¸¦ °¡Áø ¹öºí Á¤·ÄÀ» ÀÌ¿ëÇÑ´Ù
+ í’€ì´
+	ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§„ ìˆ˜ì˜ ê°œìˆ˜ê°€ ë¹„êµì  ì ìœ¼ë¯€ë¡œ O(n^2)ì˜ ì‹œê°„ë³µìž¡ë„ë¥¼ ê°€ì§„ ë²„ë¸” ì •ë ¬ì„ ì´ìš©í•œë‹¤
  */
 
 #include <iostream>

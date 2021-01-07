@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : ´Ü¾î °øºÎ (https://www.acmicpc.net/problem/1157)
+ï»¿/*
+ë¬¸ì œ : ë‹¨ì–´ ê³µë¶€ (https://www.acmicpc.net/problem/1157)
 */
 
 #include <iostream>

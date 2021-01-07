@@ -1,10 +1,10 @@
-/*
-¹®Á¦ : ½ºµµÄí(https://www.acmicpc.net/problem/2580)
+ï»¿/*
+ë¬¸ì œ : ìŠ¤ë„ì¿ (https://www.acmicpc.net/problem/2580)
 
-Ç®ÀÌ
-	¹éÆ®·¢Å·À» ÀÌ¿ëÇÑ ¿ÏÀüÅ½»öÀ¸·Î ¾Ë°í¸®ÁòÀ» Â¥´Â °ÍÀº ½¬¿üÀ¸³ª ÀÚ²Ù ¿À´äÀÌ ³µ¾ú´Ù.
-	±× ÀÌÀ¯´Â Á¤´äÀ» ÇÏ³ª¸¸ Ãâ·ÂÇØ¾ß ÇÏ´Â ¹®Á¦ Æ¯¼º »ó Àç±ÍÇÔ¼ö¸¦ ³¡±îÁö µ¹¸®¸é ¿©·¯ ´äÀ» °ÅÄ¡°Ô µÇ¾î¹ö¸° ´Ù´Â °ÍÀÌ´Ù.
-	µû¶ó¼­ ÃÖÃÊ¿¡ ´äÀ» Ã£¾ÒÀ¸¸é ±× Áï½Ã Á¤´äÀ» Ãâ·ÂÇÏ°í ÇÁ·Î±×·¥À» Á¾·áÇÏµµ·Ï ÇØ¾ß Çß´Ù.
+í’€ì´
+	ë°±íŠ¸ëž™í‚¹ì„ ì´ìš©í•œ ì™„ì „íƒìƒ‰ìœ¼ë¡œ ì•Œê³ ë¦¬ì¦˜ì„ ì§œëŠ” ê²ƒì€ ì‰¬ì› ìœ¼ë‚˜ ìžê¾¸ ì˜¤ë‹µì´ ë‚¬ì—ˆë‹¤.
+	ê·¸ ì´ìœ ëŠ” ì •ë‹µì„ í•˜ë‚˜ë§Œ ì¶œë ¥í•´ì•¼ í•˜ëŠ” ë¬¸ì œ íŠ¹ì„± ìƒ ìž¬ê·€í•¨ìˆ˜ë¥¼ ëê¹Œì§€ ëŒë¦¬ë©´ ì—¬ëŸ¬ ë‹µì„ ê±°ì¹˜ê²Œ ë˜ì–´ë²„ë¦° ë‹¤ëŠ” ê²ƒì´ë‹¤.
+	ë”°ë¼ì„œ ìµœì´ˆì— ë‹µì„ ì°¾ì•˜ìœ¼ë©´ ê·¸ ì¦‰ì‹œ ì •ë‹µì„ ì¶œë ¥í•˜ê³  í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•˜ë„ë¡ í•´ì•¼ í–ˆë‹¤.
  */
 
 #include <iostream>
@@ -12,16 +12,16 @@
 
 using namespace std;
 
-struct point {	//ÁÂÇ¥
+struct point {	//ì¢Œí‘œ
 	int x;
 	int y;
 	point(int x, int y) : x(x), y(y) {};
 }typedef point;
 
-int b[9][9];		//½ºµµÄí ÆÇ
-vector<point> v;	//ºóÄ­ÀÇ ÁÂÇ¥ ÀúÀå¿ë º¤ÅÍ
+int b[9][9];		//ìŠ¤ë„ì¿  íŒ
+vector<point> v;	//ë¹ˆì¹¸ì˜ ì¢Œí‘œ ì €ìž¥ìš© ë²¡í„°
 
-void printB() {		//½ºµµÄí ÆÇ Ãâ·Â
+void printB() {		//ìŠ¤ë„ì¿  íŒ ì¶œë ¥
 	for (int y = 0; y < 9; y++) {
 		for (int x = 0; x < 9; x++) {
 			cout << b[y][x] << " ";
@@ -30,8 +30,8 @@ void printB() {		//½ºµµÄí ÆÇ Ãâ·Â
 	}
 }
 
-bool check(int y, int x, int n) {	//°ãÄ¡´Â ¼ýÀÚ°¡ ÀÖ´ÂÁö Á¶»ç
-	for (int i = 0; i < 9; i++) {	//°¡·Î ¼¼·Î¿¡ °ãÄ¡´Â ¼ýÀÚ°¡ ÀÖ´ÂÁö °Ë»ç
+bool check(int y, int x, int n) {	//ê²¹ì¹˜ëŠ” ìˆ«ìžê°€ ìžˆëŠ”ì§€ ì¡°ì‚¬
+	for (int i = 0; i < 9; i++) {	//ê°€ë¡œ ì„¸ë¡œì— ê²¹ì¹˜ëŠ” ìˆ«ìžê°€ ìžˆëŠ”ì§€ ê²€ì‚¬
 		if (b[y][i] == n)
 			return false;
 		if (b[i][x] == n)
@@ -39,7 +39,7 @@ bool check(int y, int x, int n) {	//°ãÄ¡´Â ¼ýÀÚ°¡ ÀÖ´ÂÁö Á¶»ç
 	}
 	int nx = (x / 3) * 3;
 	int ny = (y / 3) * 3;
-	for (int i = ny; i < ny + 3; i++)	//»ç°¢Çü ¾È¿¡ °ãÄ¡´Â ¼ýÀÚ°¡ ÀÖ´ÂÁö °Ë»ç
+	for (int i = ny; i < ny + 3; i++)	//ì‚¬ê°í˜• ì•ˆì— ê²¹ì¹˜ëŠ” ìˆ«ìžê°€ ìžˆëŠ”ì§€ ê²€ì‚¬
 		for (int j = nx; j < nx + 3; j++)
 			if (b[i][j] == n)
 				return false;
@@ -47,17 +47,17 @@ bool check(int y, int x, int n) {	//°ãÄ¡´Â ¼ýÀÚ°¡ ÀÖ´ÂÁö Á¶»ç
 }
 
 void solve(int idx) {
-	if (idx == v.size()) {	//¸¸ÀÏ ºóÄ­À» ´Ù Ã¤¿üÀ¸¸é Ãâ·ÂÈÄ ÇÁ·Î±×·¥ Á¾·á
+	if (idx == v.size()) {	//ë§Œì¼ ë¹ˆì¹¸ì„ ë‹¤ ì±„ì› ìœ¼ë©´ ì¶œë ¥í›„ í”„ë¡œê·¸ëž¨ ì¢…ë£Œ
 		printB();
 		exit(0);
 	}
-	for (int i = 1; i <= 9; i++) {	//ºóÄ­¿¡ 1ºÎÅÍ 9±îÁö ÇÏ³ª¾¿ ³Ö¾î°¡¸ç °Ë»ç
-		if (check(v[idx].y, v[idx].x, i)) {	//¸¸ÀÏ °ãÄ¡´Â ¼ýÀÚ°¡ ¾øÀ¸¸é ³Ö°í
+	for (int i = 1; i <= 9; i++) {	//ë¹ˆì¹¸ì— 1ë¶€í„° 9ê¹Œì§€ í•˜ë‚˜ì”© ë„£ì–´ê°€ë©° ê²€ì‚¬
+		if (check(v[idx].y, v[idx].x, i)) {	//ë§Œì¼ ê²¹ì¹˜ëŠ” ìˆ«ìžê°€ ì—†ìœ¼ë©´ ë„£ê³ 
 			b[v[idx].y][v[idx].x] = i;
-			solve(idx + 1);					//´ÙÀ½ ºóÄ­À» Ã¤¿î´Ù
+			solve(idx + 1);					//ë‹¤ìŒ ë¹ˆì¹¸ì„ ì±„ìš´ë‹¤
 		}
 	}
-	b[v[idx].y][v[idx].x] = 0;		//¸¸ÀÏ ¸Â´Â ¼ö°¡ ¾ø´Ù¸é ºóÄ­À¸·Î µÇµ¹¸°´Ù.
+	b[v[idx].y][v[idx].x] = 0;		//ë§Œì¼ ë§žëŠ” ìˆ˜ê°€ ì—†ë‹¤ë©´ ë¹ˆì¹¸ìœ¼ë¡œ ë˜ëŒë¦°ë‹¤.
 	return;
 }
 

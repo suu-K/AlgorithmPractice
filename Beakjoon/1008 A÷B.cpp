@@ -1,4 +1,4 @@
-/*
+﻿/*
 문제 : A/B(https://www.acmicpc.net/problem/1008)
 풀이
  나눗셈 문제이므로 결과값이 실수형일 가능성이 크다.

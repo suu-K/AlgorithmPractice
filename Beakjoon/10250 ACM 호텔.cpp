@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : ACM È£ÅÚ(https://www.acmicpc.net/problem/10250)
+ï»¿/*
+ë¬¸ì œ : ACM í˜¸í…”(https://www.acmicpc.net/problem/10250)
  */
 
 #include <iostream>

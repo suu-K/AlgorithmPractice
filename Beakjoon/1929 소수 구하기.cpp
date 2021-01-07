@@ -1,10 +1,10 @@
-/*
-¹®Á¦ : ¼Ò¼ö ±¸ÇÏ±â(https://www.acmicpc.net/problem/1929)
+ï»¿/*
+ë¬¸ì œ : ì†Œìˆ˜ êµ¬í•˜ê¸°(https://www.acmicpc.net/problem/1929)
 
-Ç®ÀÌ
-	Ã³À½¿¡ vector¸¦ ÀÌ¿ëÇØ¼­ Ç®¾ú´Âµ¥ ½Ã°£ÃÊ°ú°¡ ³ª¹ö·È´Ù. µ¿ÀûÇÒ´ç ÇÏ´Âµ¥ ½Ã°£ÀÌ °É¸° µí ÇÏ´Ù.
-	±×·¡¼­ array·Î ¹Ù²ã¼­ Ç®¾ú´õ´Ï ¼öÇà½Ã°£ÀÌ È®½ÇÈ÷ Âª¾ÆÁ³´Ù. ÇÏÁö¸¸ ¿©ÀüÈ÷ ½Ã°£ÃÊ°ú°¡ ³µ´Ù.
-	ÀÌ´Â Ãâ·Â ÇÔ¼ö¸¦ coutÀ¸·Î ÇØ¼­ ¹ú¾îÁø ÀÏÀÌ¾ú´Ù. printf·Î Ãâ·ÂÀ» ÇÏ´Ï ½Ã°£ ¾È¿¡ Ãâ·ÂÀÌ µÇ¾ú´Ù.
+í’€ì´
+	ì²˜ìŒì— vectorë¥¼ ì´ìš©í•´ì„œ í’€ì—ˆëŠ”ë° ì‹œê°„ì´ˆê³¼ê°€ ë‚˜ë²„ë ¸ë‹¤. ë™ì í• ë‹¹ í•˜ëŠ”ë° ì‹œê°„ì´ ê±¸ë¦° ë“¯ í•˜ë‹¤.
+	ê·¸ëž˜ì„œ arrayë¡œ ë°”ê¿”ì„œ í’€ì—ˆë”ë‹ˆ ìˆ˜í–‰ì‹œê°„ì´ í™•ì‹¤ížˆ ì§§ì•„ì¡Œë‹¤. í•˜ì§€ë§Œ ì—¬ì „ížˆ ì‹œê°„ì´ˆê³¼ê°€ ë‚¬ë‹¤.
+	ì´ëŠ” ì¶œë ¥ í•¨ìˆ˜ë¥¼ coutìœ¼ë¡œ í•´ì„œ ë²Œì–´ì§„ ì¼ì´ì—ˆë‹¤. printfë¡œ ì¶œë ¥ì„ í•˜ë‹ˆ ì‹œê°„ ì•ˆì— ì¶œë ¥ì´ ë˜ì—ˆë‹¤.
  */
 
 #include <iostream>

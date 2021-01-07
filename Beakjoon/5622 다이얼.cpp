@@ -1,5 +1,5 @@
-/*
-πÆ¡¶ : ¥Ÿ¿ÃæÛ(https://www.acmicpc.net/problem/5622)
+Ôªø/*
+Î¨∏Ï†ú : Îã§Ïù¥Ïñº(https://www.acmicpc.net/problem/5622)
 */
 
 #include <string>

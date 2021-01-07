@@ -1,10 +1,10 @@
-/*
-¹®Á¦ : Àü±êÁÙ(https://www.acmicpc.net/problem/2565)
+ï»¿/*
+ë¬¸ì œ : ì „ê¹ƒì¤„(https://www.acmicpc.net/problem/2565)
 
-Ç®ÀÌ
-	Àü±êÁÙÀ» Àüº¿´ë aÀÇ 1¹ø À§Ä¡ºÎÅÍ Â÷·Ê´ë·Î º¸ÀÚ¸é °á±¹ ÀÌÀüº¸´Ù Å« ¼ö°¡ ¿¬°áµÇ¾î ÀÖ¾î¾ß ÇÑ´Ù.
-	ÀÌ´Â Àüº¿´ë bÀÇ Áõ°¡ ºÎºÐ ¼ö¿­°ú °°´Ù. µû¶ó¼­ Àü±êÁÙÀ» ÃÖ¼Ò·Î ¾ø¾Ö±â À§ÇØ¼± °¡Àå ±ä Áõ°¡ ºÎºÐ ¼ö¿­À» Ã£À¸¸é µÈ´Ù.
-	ÇÏÁö¸¸ Ã³À½¿¡ Àü±êÁÙÀÌ ÁÖ¾îÁú ¶§ ¼ø¼­´ë·Î ÁÖ¾îÁöÁö ¾ÊÀ¸¹Ç·Î Àüº¿´ë a¸¦ ±âÁØÀ¸·Î Á¤·Ä ÇÑ µÚ Àüº¸´ë bÀÇ ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­À» Ã£´Â´Ù.
+í’€ì´
+	ì „ê¹ƒì¤„ì„ ì „ë´‡ëŒ€ aì˜ 1ë²ˆ ìœ„ì¹˜ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ ë³´ìžë©´ ê²°êµ­ ì´ì „ë³´ë‹¤ í° ìˆ˜ê°€ ì—°ê²°ë˜ì–´ ìžˆì–´ì•¼ í•œë‹¤.
+	ì´ëŠ” ì „ë´‡ëŒ€ bì˜ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ê³¼ ê°™ë‹¤. ë”°ë¼ì„œ ì „ê¹ƒì¤„ì„ ìµœì†Œë¡œ ì—†ì• ê¸° ìœ„í•´ì„  ê°€ìž¥ ê¸´ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì„ ì°¾ìœ¼ë©´ ëœë‹¤.
+	í•˜ì§€ë§Œ ì²˜ìŒì— ì „ê¹ƒì¤„ì´ ì£¼ì–´ì§ˆ ë•Œ ìˆœì„œëŒ€ë¡œ ì£¼ì–´ì§€ì§€ ì•Šìœ¼ë¯€ë¡œ ì „ë´‡ëŒ€ aë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ í•œ ë’¤ ì „ë³´ëŒ€ bì˜ ìµœëŒ€ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì„ ì°¾ëŠ”ë‹¤.
  */
 
 #include <iostream>
@@ -19,11 +19,11 @@ struct pole {
 	pole(int a, int b) : a(a), b(b) {};
 }typedef pole;
 
-int a[101];		//¼ö¿­À» ÀúÀåÇÏ´Â ¹è¿­
-int cache[101];	//ºÎºÐ Áõ°¡¼ö¿­ ¸Þ¸ðÀÌÁ¦ÀÌ¼Ç ¿ë ¹è¿­
-int n;				//ÁÖ¾îÁø ¼ö¿­ÀÇ ±æÀÌ
+int a[101];		//ìˆ˜ì—´ì„ ì €ìž¥í•˜ëŠ” ë°°ì—´
+int cache[101];	//ë¶€ë¶„ ì¦ê°€ìˆ˜ì—´ ë©”ëª¨ì´ì œì´ì…˜ ìš© ë°°ì—´
+int n;				//ì£¼ì–´ì§„ ìˆ˜ì—´ì˜ ê¸¸ì´
 
-int lis(int idx) {	//ÃÖ´ñ°ª ±îÁöÀÇ ºÎºÐ Áõ°¡ ¼ö¿­
+int lis(int idx) {	//ìµœëŒ“ê°’ ê¹Œì§€ì˜ ë¶€ë¶„ ì¦ê°€ ìˆ˜ì—´
 	if (idx > n)
 		return 0;
 
@@ -45,7 +45,7 @@ void reset() {
 		cache[i] = -1;
 }
 
-bool inc(pole a, pole b) {	//aÀüº¿´ëÀÇ ¼ø¼­´ë·Î Á¤·Ä
+bool inc(pole a, pole b) {	//aì „ë´‡ëŒ€ì˜ ìˆœì„œëŒ€ë¡œ ì •ë ¬
 	if (a.a < b.a)
 		return true;
 	else
@@ -66,13 +66,13 @@ int main() {
 
 	sort(v.begin(), v.end(), inc);
 
-	a[0] = 0;						//Á¤·ÄµÈ ¼ö¿­À» ¿Å±è
+	a[0] = 0;						//ì •ë ¬ëœ ìˆ˜ì—´ì„ ì˜®ê¹€
 	for (int i = 1; i <= n; i++) {
 		a[i] = v[i - 1].b;
 	}
 
 
-	cout << n - lis(0) << endl;		//Àü±êÁÙÀÇ ÀüÃ¼ °³¼ö¿¡¼­ ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­À» »©¸é ¾ø¾Ö¾ß ÇÒ Àü±êÁÙÀÇ ¼ö
+	cout << n - lis(0) << endl;		//ì „ê¹ƒì¤„ì˜ ì „ì²´ ê°œìˆ˜ì—ì„œ ìµœëŒ€ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì„ ë¹¼ë©´ ì—†ì• ì•¼ í•  ì „ê¹ƒì¤„ì˜ ìˆ˜
 
 	return 0;
 }

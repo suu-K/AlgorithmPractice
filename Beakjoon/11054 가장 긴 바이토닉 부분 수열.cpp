@@ -1,31 +1,31 @@
-/*
-¹®Á¦ : °¡Àå ±ä ¹ÙÀÌÅä´Ð ºÎºÐ ¼ö¿­(https://www.acmicpc.net/problem/11054)
+ï»¿/*
+ë¬¸ì œ : ê°€ìž¥ ê¸´ ë°”ì´í† ë‹‰ ë¶€ë¶„ ìˆ˜ì—´(https://www.acmicpc.net/problem/11054)
  */
 
 #include <iostream>
 
 using namespace std;
 
-int a[1001];		//¼ö¿­À» ÀúÀåÇÏ´Â ¹è¿­
-int cacheI[1001];	//ºÎºÐ Áõ°¡¼ö¿­ ¸Þ¸ðÀÌÁ¦ÀÌ¼Ç ¿ë ¹è¿­
-int cacheD[1001];	//ºÎºÐ °¨¼Ò¼ö¿­ ¸Þ¸ðÀÌÁ¦ÀÌ¼Ç ¿ë ¹è¿­
-int n;				//ÁÖ¾îÁø ¼ö¿­ÀÇ ±æÀÌ
-int mxIdx;			//¹ÙÀÌÅä´Ð ºÎºÐ ¼ö¿­ÀÇ Áß½ÉÀÌ µÇ´Â ÃÖ´ñ°ª
+int a[1001];		//ìˆ˜ì—´ì„ ì €ìž¥í•˜ëŠ” ë°°ì—´
+int cacheI[1001];	//ë¶€ë¶„ ì¦ê°€ìˆ˜ì—´ ë©”ëª¨ì´ì œì´ì…˜ ìš© ë°°ì—´
+int cacheD[1001];	//ë¶€ë¶„ ê°ì†Œìˆ˜ì—´ ë©”ëª¨ì´ì œì´ì…˜ ìš© ë°°ì—´
+int n;				//ì£¼ì–´ì§„ ìˆ˜ì—´ì˜ ê¸¸ì´
+int mxIdx;			//ë°”ì´í† ë‹‰ ë¶€ë¶„ ìˆ˜ì—´ì˜ ì¤‘ì‹¬ì´ ë˜ëŠ” ìµœëŒ“ê°’
 
-void reset() {		//Ä³½Ã ÃÊ±âÈ­
+void reset() {		//ìºì‹œ ì´ˆê¸°í™”
 	for (int i = 0; i < 1001; i++) {
 		cacheI[i] = -1;
 		cacheD[i] = -1;
 	}
 }
-void resetI() {		//Ä³½Ã ÃÊ±âÈ­
+void resetI() {		//ìºì‹œ ì´ˆê¸°í™”
 	for (int i = 0; i < 1001; i++) {
 		cacheI[i] = -1;
 	}
 }
 
 
-int lis(int idx) {	//ÃÖ´ñ°ª ±îÁöÀÇ ºÎºÐ Áõ°¡ ¼ö¿­
+int lis(int idx) {	//ìµœëŒ“ê°’ ê¹Œì§€ì˜ ë¶€ë¶„ ì¦ê°€ ìˆ˜ì—´
 	if (idx > mxIdx)
 		return 0;
 
@@ -41,7 +41,7 @@ int lis(int idx) {	//ÃÖ´ñ°ª ±îÁöÀÇ ºÎºÐ Áõ°¡ ¼ö¿­
 
 	return ret;
 }
-int lds(int idx) {	//ÃÖ´ñ°ª ºÎÅÍÀÇ ºÎºÐ °¨¼Ò ¼ö¿­
+int lds(int idx) {	//ìµœëŒ“ê°’ ë¶€í„°ì˜ ë¶€ë¶„ ê°ì†Œ ìˆ˜ì—´
 	if (idx > n)
 		return 0;
 
@@ -58,10 +58,10 @@ int lds(int idx) {	//ÃÖ´ñ°ª ºÎÅÍÀÇ ºÎºÐ °¨¼Ò ¼ö¿­
 	return ret;
 }
 
-int lbs() {	//ÃÖ´ñ°ªÀ» Áß½ÉÀ¸·Î ºÎºÐ Áõ°¡¼ö¿­°ú ºÎºÐ °¨¼Ò¼ö¿­ÀÇ ÇÕÀ» ÀüºÎ °Ë»ç
+int lbs() {	//ìµœëŒ“ê°’ì„ ì¤‘ì‹¬ìœ¼ë¡œ ë¶€ë¶„ ì¦ê°€ìˆ˜ì—´ê³¼ ë¶€ë¶„ ê°ì†Œìˆ˜ì—´ì˜ í•©ì„ ì „ë¶€ ê²€ì‚¬
 	int ret = 0;
 	for (int i = 1; i <= n; i++) {
-		resetI();	//ºÎºÐ Áõ°¡ ¼ö¿­ÀÇ ¹üÀ§°¡ ´Þ¶óÁö¹Ç·Î °è»ê ÇÒ¶§¸¶´Ù ÃÊ±âÈ­
+		resetI();	//ë¶€ë¶„ ì¦ê°€ ìˆ˜ì—´ì˜ ë²”ìœ„ê°€ ë‹¬ë¼ì§€ë¯€ë¡œ ê³„ì‚° í• ë•Œë§ˆë‹¤ ì´ˆê¸°í™”
 		mxIdx = i;
 		ret = max(ret, lis(0) + lds(mxIdx));
 	}

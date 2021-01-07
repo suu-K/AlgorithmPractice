@@ -1,8 +1,8 @@
-/*
-¹®Á¦ : N-Queen(https://www.acmicpc.net/problem/9663)
+ï»¿/*
+ë¬¸ì œ : N-Queen(https://www.acmicpc.net/problem/9663)
 
-Ç®ÀÌ
-	ÇØ´ç ¿­ÀÇ ¸î ¹ø¤Š Ä­¿¡ ÄýÀÌ ÀÌ¹Ì ³õ¿©Á® ÀÖ´ÂÁö¸¦ ÀúÀåÇÏ°í ÄýÀ» ³õÀ» ¶§¸¶´Ù °ãÄ¡´Â ±¸°£ÀÌ ÀÖ´ÂÁö °Ë»çÇÏ¸ç ¿ÏÀüÅ½»öÀ» ÇÑ´Ù.
+í’€ì´
+	í•´ë‹¹ ì—´ì˜ ëª‡ ë²ˆì¨° ì¹¸ì— í€¸ì´ ì´ë¯¸ ë†“ì—¬ì ¸ ìžˆëŠ”ì§€ë¥¼ ì €ìž¥í•˜ê³  í€¸ì„ ë†“ì„ ë•Œë§ˆë‹¤ ê²¹ì¹˜ëŠ” êµ¬ê°„ì´ ìžˆëŠ”ì§€ ê²€ì‚¬í•˜ë©° ì™„ì „íƒìƒ‰ì„ í•œë‹¤.
  */
 
 #include <iostream>
@@ -12,7 +12,7 @@ using namespace std;
 int col[15];
 int cnt = 0, n = 0;
 
-bool check(int y, int x) {		//´Ù¸¥ ÄýÀÌ °°Àº ¿­ È¤Àº °°Àº Çà È¤Àº ´ë°¢¼±»ó¿¡ À§Ä¡ÇÏ¿´´ÂÁö °Ë»ç
+bool check(int y, int x) {		//ë‹¤ë¥¸ í€¸ì´ ê°™ì€ ì—´ í˜¹ì€ ê°™ì€ í–‰ í˜¹ì€ ëŒ€ê°ì„ ìƒì— ìœ„ì¹˜í•˜ì˜€ëŠ”ì§€ ê²€ì‚¬
 	for (int i = 0; i < x; i++) {
 		if (col[i] == y || i - x == col[i] - y || i - x == y - col[i])
 			return false;

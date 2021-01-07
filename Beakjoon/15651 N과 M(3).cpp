@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : N°ú M(3)(https://www.acmicpc.net/problem/15651)
+ï»¿/*
+ë¬¸ì œ : Nê³¼ M(3)(https://www.acmicpc.net/problem/15651)
  */
 
 #include <iostream>

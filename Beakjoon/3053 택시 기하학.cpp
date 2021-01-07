@@ -1,5 +1,5 @@
-/*
-╧╝а╕ : ец╫ц ╠Бгогп(https://www.acmicpc.net/problem/3053)
+О╩©/*
+К╛╦Л═° : М┐²Л▀° Й╦╟М∙≤М∙≥(https://www.acmicpc.net/problem/3053)
  */
 
 #define _USE_MATH_DEFINES

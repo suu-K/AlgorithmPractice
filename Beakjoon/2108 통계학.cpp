@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : Åë°èÇĞ(https://www.acmicpc.net/problem/2108)
+ï»¿/*
+ë¬¸ì œ : í†µê³„í•™(https://www.acmicpc.net/problem/2108)
  */
 
 #include <iostream>
@@ -10,20 +10,20 @@ using namespace std;
 
 int main() {
 	int n = 0, tmp = 0;
-	int mx = -4001, mn = 4001;	//ÃÖ´ë, ÃÖ¼Ò
-	int sum = 0, avg = 0, midx = 0, mode = 0;		//ÇÕ°è, Æò±Õ, ÃÖºó°ªÁÂÇ¥, ÃÖ´ë ºóµµ
+	int mx = -4001, mn = 4001;	//ìµœëŒ€, ìµœì†Œ
+	int sum = 0, avg = 0, midx = 0, mode = 0;		//í•©ê³„, í‰ê· , ìµœë¹ˆê°’ì¢Œí‘œ, ìµœëŒ€ ë¹ˆë„
 	int first = 0;
 	vector<int> c(8001, 0);
 	vector<int> v;
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		scanf_s("%d", &tmp);
-		sum += tmp;				//ÇÕ°è»ê -> Æò±Õ
+		sum += tmp;				//í•©ê³„ì‚° -> í‰ê· 
 		c[tmp + 4000]++;
-		mx = max(mx, tmp);		//ÃÖ´ë ÃÖ¼Ò °è»ê -> ¹üÀ§
+		mx = max(mx, tmp);		//ìµœëŒ€ ìµœì†Œ ê³„ì‚° -> ë²”ìœ„
 		mn = min(mn, tmp);
 	}
-	for (int i = 0; i < 8001; i++) {	//ÃÖºó°ª
+	for (int i = 0; i < 8001; i++) {	//ìµœë¹ˆê°’
 		if (mode == c[i] && first) {
 			midx = i - 4000;
 			first = 0;
@@ -34,7 +34,7 @@ int main() {
 			first = 1;
 		}
 	}
-	for (int i = 0, idx = 0; i < 8001; i++) {	//Ä«¿îÆÃÁ¤·Ä -> Áß¾Ó°ª
+	for (int i = 0, idx = 0; i < 8001; i++) {	//ì¹´ìš´íŒ…ì •ë ¬ -> ì¤‘ì•™ê°’
 		for (int j = 0; j < c[i]; j++) {
 			v.push_back(i - 4000);
 		}

@@ -1,5 +1,5 @@
-/*
-¹®Á¦ : ºí·¢Àè(https://www.acmicpc.net/problem/2798)
+ï»¿/*
+ë¬¸ì œ : ë¸”ë™ì­(https://www.acmicpc.net/problem/2798)
  */
 #include <iostream>
 #include <vector>
@@ -8,8 +8,8 @@ using namespace std;
 
 int main() {
 	int n = 0, m = 0, tmp = 0;
-	int sum = 0;	//¼¼ ¼öÀÇ ÇÕ
-	int close = -1;	//°¡Àå °¡±î¿î °ª
+	int sum = 0;	//ì„¸ ìˆ˜ì˜ í•©
+	int close = -1;	//ê°€ì¥ ê°€ê¹Œìš´ ê°’
 	vector<int> v;
 	cin >> n >> m;
 	for (int i = 0; i < n; i++) {

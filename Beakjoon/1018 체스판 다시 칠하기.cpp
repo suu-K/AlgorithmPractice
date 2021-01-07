@@ -1,5 +1,5 @@
-/*
-╧╝а╕ : ц╪╫╨фг ╢ы╫ц д╔го╠Б(https://www.acmicpc.net/problem/1018)
+О╩©/*
+К╛╦Л═° : Л╡╢Л┼╓М▄░ К▀╓Л▀° Л╧═М∙≤Й╦╟(https://www.acmicpc.net/problem/1018)
  */
 
 #include <iostream>
