@@ -1,23 +1,10 @@
-/*
-¹®Á¦ : ½Ã°è ¸ÂÃß±â(CLOCKSYNC)(https://algospot.com/judge/problem/read/CLOCKSYNC)
- 16°³ÀÇ ½Ã°è°¡ ¸ðµÎ 12½Ã, 3½Ã, 6½Ã, 9½Ã Áß ÇÏ³ª¸¦ °¡¸®Å°°í ÀÖ´Ù.
- °¢°¢ ÇÏ³ª ÀÌ»óÀÇ ½Ã°è¿Í ¿¬°áµÈ 10°³ÀÇ ½ºÀ§Ä¡°¡ ÀÖ°í ÀÌ ½ºÀ§Ä¡¸¦ ´©¸£¸é ¿¬°áµÈ ½Ã°è°¡ 3½Ã°£¾¿ ¾ÕÀ¸·Î ¿òÁ÷ÀÎ´Ù.
- °¢ ½Ã°èÀÇ ÇöÀç ½Ã°£ÀÌ ÁÖ¾îÁö¸é ½ºÀ§Ä¡¸¦ ´­·¯¼­ ¸ðµÎ 12½Ã¸¦ °¡¸®Å°°Ô ÇÏ´Â ÃÖ¼Ò È½¼ö¸¦ ±¸ÇÏ¶ó.
+ï»¿/*
+ë¬¸ì œ : ì‹œê³„ ë§žì¶”ê¸°(CLOCKSYNC)(https://algospot.com/judge/problem/read/CLOCKSYNC)
 
-ÀÔ·Â
- Ã¹ ÁÙ¿¡´Â Å×½ºÆ® ÄÉÀÌ½º CÀÇ ¼ö°¡ ÁÖ¾îÁø´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½º´Â ÇÑ ÁÙ¿¡ 16°³ÀÇ Á¤¼ö·Î ÁÖ¾îÁö¸ç, °¢ Á¤¼ö´Â 0¹øºÎÅÍ 15¹ø±îÁö °¢ ½Ã°è°¡ °¡¸®Å°°í ÀÖ´Â ½Ã°£À» 12, 3, 6, 9 Áß ÇÏ³ª·Î Ç¥ÇöÇÑ´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º´ç Á¤¼ö ÇÏ³ª¸¦ ÇÑÁÙ¿¡ Ãâ·ÂÇÕ´Ï´Ù.
- ÀÌ Á¤¼ö´Â ½Ã°èµéÀ» ¸ðµÎ 12½Ã·Î µ¹·Á³õ±â À§ÇØ ½ºÀ§Ä¡¸¦ ´­·¯¾ß ÇÒ ÃÖ¼Ò È½¼ö¿©¾ß ÇÏ¸ç, ¸¸¾à ÀÌ°ÍÀÌ ºÒ°¡´ÉÇÒ °æ¿ì -1À» Ãâ·ÂÇØ¾ß ÇÕ´Ï´Ù.
- */
-
- /*
- Ç®ÀÌ
-  Àç±ÍÇÔ¼ö¸¦ ÀÌ¿ëÇÑ ¿ÏÀüÅ½»öÀ¸·Î ¸ðµç °æ¿ìÀÇ ¼ö¸¦ »ìÆìº»´Ù.
-  °¢ ½ºÀ§Ä¡¸¦ 4¹ø ´©¸£¸é Á¦ÀÚ¸®ÀÌ¹Ç·Î °¢ ½ºÀ§Ä¡¸¦ ´©¸¦ ÃÖ´ëÀÇ °³¼ö´Â 3¹øÀÌ´Ù.
-  16°³ÀÇ ½Ã°è¸¦ 0-3¹ø¾¿ ´©¸£´Â °æ¿ìÀÇ ¼ö¸¦ ¸ðµÎ ¼¾´Ù.
+ í’€ì´
+  ìž¬ê·€í•¨ìˆ˜ë¥¼ ì´ìš©í•œ ì™„ì „íƒìƒ‰ìœ¼ë¡œ ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ë¥¼ ì‚´íŽ´ë³¸ë‹¤.
+  ê° ìŠ¤ìœ„ì¹˜ë¥¼ 4ë²ˆ ëˆ„ë¥´ë©´ ì œìžë¦¬ì´ë¯€ë¡œ ê° ìŠ¤ìœ„ì¹˜ë¥¼ ëˆ„ë¥¼ ìµœëŒ€ì˜ ê°œìˆ˜ëŠ” 3ë²ˆì´ë‹¤.
+  16ê°œì˜ ì‹œê³„ë¥¼ 0-3ë²ˆì”© ëˆ„ë¥´ëŠ” ê²½ìš°ì˜ ìˆ˜ë¥¼ ëª¨ë‘ ì„¼ë‹¤.
  */
 
 #include <iostream>
@@ -25,13 +12,13 @@
 
 using namespace std;
 
-int TimesOfPush(vector<int>& clock, int curSwitch); //½ºÀ§Ä¡¸¦ ´©¸£´Â ÃÖ¼Ò È½¼ö¸¦ ±¸ÇÏ´Â ÇÔ¼ö, curSwitch´Â ÇöÀç ´­·¯¾ß ÇÏ´Â ½ºÀ§Ä¡
-void PushSwitch(vector<int>& clock, int curSwitch); //ÇöÀç ½ºÀ§Ä¡¸¦ ÇÑ ¹ø ´­·¯ clockÀÇ ½Ã°è¸¦ ¿òÁ÷ÀÌ´Â ÇÔ¼ö
-bool CheckClock(vector<int>& clock);    //½Ã°è°¡ ¸ðµÎ 12½Ã¸¦ °¡¸®Å°´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+int TimesOfPush(vector<int>& clock, int curSwitch); //ìŠ¤ìœ„ì¹˜ë¥¼ ëˆ„ë¥´ëŠ” ìµœì†Œ íšŸìˆ˜ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜, curSwitchëŠ” í˜„ìž¬ ëˆŒëŸ¬ì•¼ í•˜ëŠ” ìŠ¤ìœ„ì¹˜
+void PushSwitch(vector<int>& clock, int curSwitch); //í˜„ìž¬ ìŠ¤ìœ„ì¹˜ë¥¼ í•œ ë²ˆ ëˆŒëŸ¬ clockì˜ ì‹œê³„ë¥¼ ì›€ì§ì´ëŠ” í•¨ìˆ˜
+bool CheckClock(vector<int>& clock);    //ì‹œê³„ê°€ ëª¨ë‘ 12ì‹œë¥¼ ê°€ë¦¬í‚¤ëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
 
-const int INF = 9999999;    //½ºÀ§Ä¡¸¦ ÃÖ´ë·Î ´©¸£´Â 3^10º¸´Ù Å«, ³ª¿Ã ¼ö ¾ø´Â ¼ö. ¹«ÇÑ Ãë±Þ
+const int INF = 9999999;    //ìŠ¤ìœ„ì¹˜ë¥¼ ìµœëŒ€ë¡œ ëˆ„ë¥´ëŠ” 3^10ë³´ë‹¤ í°, ë‚˜ì˜¬ ìˆ˜ ì—†ëŠ” ìˆ˜. ë¬´í•œ ì·¨ê¸‰
 
-vector<vector<int>> link = {    //link[i][] i¹ø ½ºÀ§Ä¡¿Í ¿¬°áµÈ ½Ã°èµé
+vector<vector<int>> link = {    //link[i][] ië²ˆ ìŠ¤ìœ„ì¹˜ì™€ ì—°ê²°ëœ ì‹œê³„ë“¤
     {0,1,2},
     {3,7,9,11},
     {4,10,14,15},
@@ -46,9 +33,9 @@ vector<vector<int>> link = {    //link[i][] i¹ø ½ºÀ§Ä¡¿Í ¿¬°áµÈ ½Ã°èµé
 
 int main()
 {
-    int c = 0; //Å×½ºÆ® ÄÉÀÌ½º
+    int c = 0; //í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤
     int num = 0;
-    vector<int> clock;  //½Ã°èÀÇ »óÅÂ
+    vector<int> clock;  //ì‹œê³„ì˜ ìƒíƒœ
     cin >> c;
     for (int t = 0; t < c; t++) {
         int tmp;
@@ -58,7 +45,7 @@ int main()
         }
         num = TimesOfPush(clock, 0);
 
-        if (num == INF) //½Ã°è¸¦ ¸ðµÎ Á¤·ÄÇÒ ¼ö ÀÖ´Â °æ¿ì°¡ ¾ø´Â °æ¿ì
+        if (num == INF) //ì‹œê³„ë¥¼ ëª¨ë‘ ì •ë ¬í•  ìˆ˜ ìžˆëŠ” ê²½ìš°ê°€ ì—†ëŠ” ê²½ìš°
             cout << -1 << endl;
         else
             cout << num << endl;
@@ -72,26 +59,26 @@ int main()
 
 int TimesOfPush(vector<int>& clock, int curSwitch) {
     int times = INF;
-    if (curSwitch == 10)    //10°³ ½ºÀ§Ä¡¸¦ ¸ðµÎ ´­·¶À» ‹š
+    if (curSwitch == 10)    //10ê°œ ìŠ¤ìœ„ì¹˜ë¥¼ ëª¨ë‘ ëˆŒë €ì„ ë–„
         if (CheckClock(clock))
             return 0;
-        else                //½Ã°è°¡ Á¤·ÄµÇÁö ¾Ê¾ÒÀ¸¸é ¹«ÇÑ ¹ÝÈ¯
+        else                //ì‹œê³„ê°€ ì •ë ¬ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ë¬´í•œ ë°˜í™˜
             return INF;
 
     for (int i = 0; i < 4; i++) {
-        PushSwitch(clock, curSwitch);   //½ºÀ§Ä¡¸¦ ÇÑ ¹ø ´©¸§
-        int rest = TimesOfPush(clock, curSwitch + 1);   //³ª¸ÓÁö ½ºÀ§Ä¡¸¦ ´­·¯ ½Ã°è¸¦ Á¤·ÄÇÑ È½¼ö
-        if (i != 3) //ÇöÀç ½ºÀ§Ä¡¸¦ ´©¸¥ È½¼ö¸¦ ´õÇÔ
+        PushSwitch(clock, curSwitch);   //ìŠ¤ìœ„ì¹˜ë¥¼ í•œ ë²ˆ ëˆ„ë¦„
+        int rest = TimesOfPush(clock, curSwitch + 1);   //ë‚˜ë¨¸ì§€ ìŠ¤ìœ„ì¹˜ë¥¼ ëˆŒëŸ¬ ì‹œê³„ë¥¼ ì •ë ¬í•œ íšŸìˆ˜
+        if (i != 3) //í˜„ìž¬ ìŠ¤ìœ„ì¹˜ë¥¼ ëˆ„ë¥¸ íšŸìˆ˜ë¥¼ ë”í•¨
             rest += i + 1;
-        times = min(times, rest);   //°æ¿ìÀÇ ¼ö°¡ ¾ø´Ù¸é ¹«ÇÑ, ÀÖ´Ù¸é ÃÖ¼Ò°ªÀ» ÀúÀå
-    }   //½ºÀ§Ä¡¸¦ ÃÑ 4¹ø ´©¸£¸é ´Ù½Ã ¿ø·¡ »óÅÂ°¡ µÇ¹Ç·Î 0¹ø ´©¸¥ °Í°ú °°À½.
+        times = min(times, rest);   //ê²½ìš°ì˜ ìˆ˜ê°€ ì—†ë‹¤ë©´ ë¬´í•œ, ìžˆë‹¤ë©´ ìµœì†Œê°’ì„ ì €ìž¥
+    }   //ìŠ¤ìœ„ì¹˜ë¥¼ ì´ 4ë²ˆ ëˆ„ë¥´ë©´ ë‹¤ì‹œ ì›ëž˜ ìƒíƒœê°€ ë˜ë¯€ë¡œ 0ë²ˆ ëˆ„ë¥¸ ê²ƒê³¼ ê°™ìŒ.
     return times;
 }
 
 void PushSwitch(vector<int>& clock, int curSwitch) {
     for (int i = 0; i < link[curSwitch].size(); i++) {
         clock[link[curSwitch][i]] += 3;
-        if (clock[link[curSwitch][i]] == 15)    //12½Ã¸¦ ³Ñ°Ü¼­ ´Ù½Ã 0½ÃºÎÅÍ ¼ÃÀ» °æ¿ì
+        if (clock[link[curSwitch][i]] == 15)    //12ì‹œë¥¼ ë„˜ê²¨ì„œ ë‹¤ì‹œ 0ì‹œë¶€í„° ì…Œì„ ê²½ìš°
             clock[link[curSwitch][i]] = 3;
     }
 }
@@ -99,7 +86,7 @@ void PushSwitch(vector<int>& clock, int curSwitch) {
 bool CheckClock(vector<int>& clock) {
     bool checker = true;
     for (int i = 0; i < clock.size(); i++) {
-        if (clock[i] != 12) {   //ÇÏ³ª¶óµµ 12½Ã°¡ ¾Æ´Ñ ½Ã°è°¡ ÀÖ´Ù¸é false
+        if (clock[i] != 12) {   //í•˜ë‚˜ë¼ë„ 12ì‹œê°€ ì•„ë‹Œ ì‹œê³„ê°€ ìžˆë‹¤ë©´ false
             checker = false;
             break;
         }

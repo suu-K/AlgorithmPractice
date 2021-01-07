@@ -1,10 +1,10 @@
-/*
-ÇÇµå¸Æ - ¿ÍÀÏµåÄ«µå(WILDCARD)(https://algospot.com/judge/problem/read/WILDCARD)
-    ÀÌ ¹®Á¦¸¦ Ã³À½ Ç® ¶§´Â ¹Ýº¹¹® ¹× Àç±ÍÈ£Ãâ À» ÀÌ¿ëÇÏ¿© ¿ÏÀüÅ½»öÀ¸·Î Ç®¾ú´Ù.
-    ÇÏÁö¸¸ ÀÌ´Â Áß°£¿¡ °°Àº °æ¿ìÀÌÁö¸¸ Áßº¹µÇ´Â ¹®Á¦µéÀ» ¿©·¯¹ø °è»êÇÑ´Ù´Â ¹®Á¦°¡ ÀÖ´Ù.
-    ÀÌ¸¦ ÇØ°áÇÏ´Â ¹æ¹ýÀÌ Dynamic Programing, ÁÙ¿©¼­ dpÀÌ´Ù. dp¿¡¼­µµ ¸Þ¸ðÁ¦ÀÌ¼ÇÀ» ÀÌ¿ëÇÏ¸é ¿©·¯¹ø °è»ê µÇ´Â °ÍÀ» ¸·À» ¼ö ÀÖ´Ù.
-    °¢ ±ÛÀÚÀÇ ±æÀÌ°¡ 100ÀÚ ÀÌ³»ÀÌ±â ¶§¹®¿¡ 100 by 100ÀÇ ¹è¿­¿¡ ¶¼¾î³½ ºÎºÐ¹®Á¦µéÀÌ ÀÌ¹Ì °á°ú¸¦ ³»¾ú´ÂÁö ÀúÀåÇØ ³õ´Â °ÍÀÌ´Ù.
-    ±×¸¦ À§ÇØ ¹Ýº¹¹®À» Àç±ÍÇÔ¼ö¸¦ ÀÌ¿ëÇÏ´Â ¹®Á¦·Î ¹Ù²ãÁÖ¸é ½Ã°£º¹Àâµµ°¡ ÁÙ¾îµç´Ù.
+ï»¿/*
+í”¼ë“œë§¥ - ì™€ì¼ë“œì¹´ë“œ(WILDCARD)(https://algospot.com/judge/problem/read/WILDCARD)
+    ì´ ë¬¸ì œë¥¼ ì²˜ìŒ í’€ ë•ŒëŠ” ë°˜ë³µë¬¸ ë° ìž¬ê·€í˜¸ì¶œ ì„ ì´ìš©í•˜ì—¬ ì™„ì „íƒìƒ‰ìœ¼ë¡œ í’€ì—ˆë‹¤.
+    í•˜ì§€ë§Œ ì´ëŠ” ì¤‘ê°„ì— ê°™ì€ ê²½ìš°ì´ì§€ë§Œ ì¤‘ë³µë˜ëŠ” ë¬¸ì œë“¤ì„ ì—¬ëŸ¬ë²ˆ ê³„ì‚°í•œë‹¤ëŠ” ë¬¸ì œê°€ ìžˆë‹¤.
+    ì´ë¥¼ í•´ê²°í•˜ëŠ” ë°©ë²•ì´ Dynamic Programing, ì¤„ì—¬ì„œ dpì´ë‹¤. dpì—ì„œë„ ë©”ëª¨ì œì´ì…˜ì„ ì´ìš©í•˜ë©´ ì—¬ëŸ¬ë²ˆ ê³„ì‚° ë˜ëŠ” ê²ƒì„ ë§‰ì„ ìˆ˜ ìžˆë‹¤.
+    ê° ê¸€ìžì˜ ê¸¸ì´ê°€ 100ìž ì´ë‚´ì´ê¸° ë•Œë¬¸ì— 100 by 100ì˜ ë°°ì—´ì— ë–¼ì–´ë‚¸ ë¶€ë¶„ë¬¸ì œë“¤ì´ ì´ë¯¸ ê²°ê³¼ë¥¼ ë‚´ì—ˆëŠ”ì§€ ì €ìž¥í•´ ë†“ëŠ” ê²ƒì´ë‹¤.
+    ê·¸ë¥¼ ìœ„í•´ ë°˜ë³µë¬¸ì„ ìž¬ê·€í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ëŠ” ë¬¸ì œë¡œ ë°”ê¿”ì£¼ë©´ ì‹œê°„ë³µìž¡ë„ê°€ ì¤„ì–´ë“ ë‹¤.
 */
 #include <iostream>
 #include <vector>
@@ -19,17 +19,17 @@ int func(int w, int s) {
     int& ret = cache[w][s];
     if (ret != -1) return ret;
     if (w < wc.size() && s < str.size() && (wc[w] == '?' || wc[w] == str[s]))
-        return ret = func(w + 1, s + 1); //Æ÷ÀÎÅÍÀÇ ±ÛÀÚ°¡ °°°Å³ª °¢ ´Ü¾îÀÇ ³¡ÀÌ ¾Æ´Ò¶§ Åë°ú
-    //µÎ ´Ü¾î Áß ÇÏ³ª°¡ ³¡¿¡ µµ´ÞÇß´Ù¸é
-    if (wc.size() == w)   //µÎ ´Ü¾îÀÇ ±æÀÌ°¡ °°À» ‹š Âü
+        return ret = func(w + 1, s + 1); //í¬ì¸í„°ì˜ ê¸€ìžê°€ ê°™ê±°ë‚˜ ê° ë‹¨ì–´ì˜ ëì´ ì•„ë‹ë•Œ í†µê³¼
+    //ë‘ ë‹¨ì–´ ì¤‘ í•˜ë‚˜ê°€ ëì— ë„ë‹¬í–ˆë‹¤ë©´
+    if (wc.size() == w)   //ë‘ ë‹¨ì–´ì˜ ê¸¸ì´ê°€ ê°™ì„ ë–„ ì°¸
         return ret = (s == str.size());
-    if (wc[w] == '*') {   //*°¡ ³ª¿Ô´Ù¸é
-        for (int j = 0; j + s <= str.size(); j++) { //*°¡ 0±ÛÀÚºÎÅÍ ÇÑ±ÛÀÚ¾¿ ´Ã·Á°¡¸ç ¸î ±ÛÀÚ¸¦ Â÷ÁöÇÏ´ÂÁö Ã£¾Æº»´Ù
+    if (wc[w] == '*') {   //*ê°€ ë‚˜ì™”ë‹¤ë©´
+        for (int j = 0; j + s <= str.size(); j++) { //*ê°€ 0ê¸€ìžë¶€í„° í•œê¸€ìžì”© ëŠ˜ë ¤ê°€ë©° ëª‡ ê¸€ìžë¥¼ ì°¨ì§€í•˜ëŠ”ì§€ ì°¾ì•„ë³¸ë‹¤
             if (func(w + 1, s + j))
                 return ret = 1;
         }
     }
-    //°á±¹ ÇÏ³ªµµ ¸ÂÁö ¾Ê°Ô µÉ ‹š
+    //ê²°êµ­ í•˜ë‚˜ë„ ë§žì§€ ì•Šê²Œ ë  ë–„
     return ret = 0;
 }
 
@@ -65,10 +65,10 @@ int main() {
             cacheReset();
 
         }
-        sort(word.begin(), word.end(), less<string>()); //³»¸²Â÷¼ø Á¤·Ä
+        sort(word.begin(), word.end(), less<string>()); //ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
         for (int j = 0; j < word.size(); j++)
             cout << word[j] << endl;
-        //ÇÑ Å×½ºÆ® ÄÉÀÌ½º°¡ ³¡³ª¸é ÃÊ±âÈ­
+        //í•œ í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ê°€ ëë‚˜ë©´ ì´ˆê¸°í™”
         wc.clear();
         str.clear();
         word.clear();

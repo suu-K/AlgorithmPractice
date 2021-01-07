@@ -1,29 +1,12 @@
-/*
-¹®Á¦ - ¿ÍÀÏµåÄ«µå(WILDCARD)(https://algospot.com/judge/problem/read/WILDCARD)
- ¿ÍÀÏµåÄ«µå´Â ´Ù¾çÇÑ ¿î¿µÃ¼Á¦¿¡¼­ ÆÄÀÏ ÀÌ¸§ÀÇ ÀÏºÎ¸¸À¸·Î ÆÄÀÏ ÀÌ¸§À» ÁöÁ¤ÇÏ´Â ¹æ¹ýÀÌ´Ù.
- ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­Àº ÀÏ¹ÝÀûÀÎ ÆÄÀÏ¸í°ú °°Áö¸¸, * ³ª ? ¿Í °°Àº Æ¯¼ö ¹®ÀÚ¸¦ Æ÷ÇÔÇÑ´Ù.
- ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­À» ¾Õ¿¡¼­ ÇÑ ±ÛÀÚ¾¿ ÆÄÀÏ¸í°ú ºñ±³ÇØ¼­, ¸ðµç ±ÛÀÚ°¡ ÀÏÄ¡ÇßÀ» ‹š ÇØ´ç ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­ÀÌ ÆÄÀÏ¸í°ú ¸ÅÄ¡µÈ´Ù°í ÇÏÀÚ.
- ´Ü, ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­¿¡ Æ÷ÇÔµÈ ?´Â ¾î¶² ±ÛÀÚ¿Í ÇÇ±³ÇØµµ ÀÏÄ¡ÇÑ´Ù°í °¡Á¤ÇÏ¸ç, *´Â 0±ÛÀÚ ÀÌ»óÀÇ ¾î¶² ¹®ÀÚ¿­¿¡µµ ÀÏÄ¡ÇÑ´Ù°í º»´Ù.
- ¿¹¸¦ µé¾î ¿ÍÀÏµå Ä«µå he?p´Â ÆÄÀÏ¸í help¿¡µµ, heap¿¡µµ ¸ÅÄ¡µÇÁö¸¸, helpp¿¡´Â ¸ÅÄ¡µÇÁö ¾Ê´Â´Ù.
- ¿ÍÀÏµåÄ«µå *p*´Â ÆÄÀÏ¸í help¿¡µµ, papa¿¡µµ ¸ÅÄ¡µÇÁö¸¸, hello¿¡´Â ¸ÅÄ¡µÇÁö ¾Ê´Â´Ù.
- ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­°ú ÇÔ°è ÆÄÀÏ¸íÀÇ ÁýÇÕÀÌ ÁÖ¾îÁú ‹š, ±× Áß ¸ÅÄ¡µÇ´Â ÆÄÀÏ¸íµéÀ» Ã£¾Æ³»´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+ï»¿/*
+ë¬¸ì œ - ì™€ì¼ë“œì¹´ë“œ(WILDCARD)(https://algospot.com/judge/problem/read/WILDCARD)
 
-ÀÔ·Â
- ÀÔ·ÂÀÇ Ã¹ ÁÙ¿¡´Â Å×½ºÆ® ÄÉÀÌ½ºÀÇ ¼ö C (1 <= C <= 10) °¡ ÁÖ¾îÁø´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½ºÀÇ Ã¹ ÁÙ¿¡´Â ¿ÍÀÏµåÄ«µå ¹®ÀÚ¿­ W °¡ ÁÖ¾îÁö¸ç, ±× ´ÙÀ½ ÁÙ¿¡´Â ÆÄÀÏ¸íÀÇ ¼ö N (1 <= N <= 50) ÀÌ ÁÖ¾îÁø´Ù.
- ±× ÈÄ N ÁÙ¿¡ ÇÏ³ª¾¿ °¢ ÆÄÀÏ¸íÀÌ ÁÖ¾îÁø´Ù.
- ÆÄÀÏ¸íÀº °ø¹é ¾øÀÌ ¾ËÆÄºª ´ë¼Ò¹®ÀÚ¿Í ¼ýÀÚ¸¸À¸·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç, ¿ÍÀÏµåÄ«µå´Â ±× ¿Ü¿¡ * ¿Í ? ¸¦ °¡Áú ¼ö ÀÖ´Ù.
- ¸ðµç ¹®ÀÚ¿­ÀÇ ±æÀÌ´Â 1 ÀÌ»ó 100 ÀÌÇÏÀÌ´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù ÁÖ¾îÁø ¿ÍÀÏµåÄ«µå¿¡ ¸ÅÄ¡µÇ´Â ÆÄÀÏµéÀÇ ÀÌ¸§À» ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ ¾Æ½ºÅ° ÄÚµå ¼ø¼­(¼ýÀÚ, ´ë¹®ÀÚ, ¼Ò¹®ÀÚ ¼ø)´ë·Î Ãâ·ÂÇÑ´Ù.
-
-Ç®ÀÌ
- °á±¹ Ã³À½ºÎÅÍ ³¡±îÁö ÇÏ³ª¾¿ °æ¿ìÀÇ ¼ö¸¦ »ìÆìº¸´Â ½ÄÀ¸·Î ÇÏ¿´´Ù.
- Ã³À½ºÎÅÍ ÇÑ±ÛÀÚ¾¿ ºñ±³ÇØ¼­ °¢ ´Ü¾î°¡ ³¡³¯ ‹š, ¹®ÀÚ°¡ °°Áö ¾ÊÀ»¶§, *ÀÌ ³ª¿ÔÀ» ¶§±îÁö ºñ±³ÇÑ´ÙÀ½ °æ¿ìÀÇ ¼ö¸¦ µûÁ®ºÃ´Ù.
- °¢ ´Ü¾î°¡ ³¡³µÀ» ‹š ¼­·Î ±æÀÌ°¡ °°´Ù¸é µÎ ´Ü¾î´Â °°Àº °ÍÀÌ´Ù. ¸¸¾à ´Ù¸£´Ù¸é *ÀÌ ÀÖ´Ù¸é °°À» ¼ö ÀÖ´Ù.
- µÎ ´Ü¾î°¡ ´Ù¸¦ ¶§´Â *°¡ ¾Æ´Ñ ÀÌ»ó µÑÀº ´Ù¸¥ ´Ü¾î´Ù.
- *°¡ ³ª¿ÔÀ¸¸é *°¡ 0ºÎÅÍ ¸î±ÛÀÚ¸¦ Â÷ÁöÇÏ´Â Áö¸¦ ¸ð¸£±â ¶§¹®¿¡ ÇÑ±ÛÀÚ¾¿ ´Ã·Á°¡¸ç ¸ðµç °æ¿ìÀÇ ¼ö¸¦ Ã£¾Æº»´Ù.
+í’€ì´
+ ê²°êµ­ ì²˜ìŒë¶€í„° ëê¹Œì§€ í•˜ë‚˜ì”© ê²½ìš°ì˜ ìˆ˜ë¥¼ ì‚´íŽ´ë³´ëŠ” ì‹ìœ¼ë¡œ í•˜ì˜€ë‹¤.
+ ì²˜ìŒë¶€í„° í•œê¸€ìžì”© ë¹„êµí•´ì„œ ê° ë‹¨ì–´ê°€ ëë‚  ë–„, ë¬¸ìžê°€ ê°™ì§€ ì•Šì„ë•Œ, *ì´ ë‚˜ì™”ì„ ë•Œê¹Œì§€ ë¹„êµí•œë‹¤ìŒ ê²½ìš°ì˜ ìˆ˜ë¥¼ ë”°ì ¸ë´¤ë‹¤.
+ ê° ë‹¨ì–´ê°€ ëë‚¬ì„ ë–„ ì„œë¡œ ê¸¸ì´ê°€ ê°™ë‹¤ë©´ ë‘ ë‹¨ì–´ëŠ” ê°™ì€ ê²ƒì´ë‹¤. ë§Œì•½ ë‹¤ë¥´ë‹¤ë©´ *ì´ ìžˆë‹¤ë©´ ê°™ì„ ìˆ˜ ìžˆë‹¤.
+ ë‘ ë‹¨ì–´ê°€ ë‹¤ë¥¼ ë•ŒëŠ” *ê°€ ì•„ë‹Œ ì´ìƒ ë‘˜ì€ ë‹¤ë¥¸ ë‹¨ì–´ë‹¤.
+ *ê°€ ë‚˜ì™”ìœ¼ë©´ *ê°€ 0ë¶€í„° ëª‡ê¸€ìžë¥¼ ì°¨ì§€í•˜ëŠ” ì§€ë¥¼ ëª¨ë¥´ê¸° ë•Œë¬¸ì— í•œê¸€ìžì”© ëŠ˜ë ¤ê°€ë©° ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ë¥¼ ì°¾ì•„ë³¸ë‹¤.
 */
 #include <iostream>
 #include <vector>
@@ -33,18 +16,18 @@ using namespace std;
 
 bool func(const string& wc, const string& word) {
     int ptr;
-    for (ptr = 0; ptr < wc.size() && ptr < word.size() && (wc[ptr] == '?' || wc[ptr] == word[ptr]); ptr++) {} //Æ÷ÀÎÅÍÀÇ ±ÛÀÚ°¡ °°°Å³ª °¢ ´Ü¾îÀÇ ³¡ÀÌ ¾Æ´Ò¶§ Åë°ú
-    //µÎ ´Ü¾î Áß ÇÏ³ª°¡ ³¡¿¡ µµ´ÞÇß´Ù¸é
-    if (wc.size() == ptr)   //µÎ ´Ü¾îÀÇ ±æÀÌ°¡ °°À» ‹š Âü
+    for (ptr = 0; ptr < wc.size() && ptr < word.size() && (wc[ptr] == '?' || wc[ptr] == word[ptr]); ptr++) {} //í¬ì¸í„°ì˜ ê¸€ìžê°€ ê°™ê±°ë‚˜ ê° ë‹¨ì–´ì˜ ëì´ ì•„ë‹ë•Œ í†µê³¼
+    //ë‘ ë‹¨ì–´ ì¤‘ í•˜ë‚˜ê°€ ëì— ë„ë‹¬í–ˆë‹¤ë©´
+    if (wc.size() == ptr)   //ë‘ ë‹¨ì–´ì˜ ê¸¸ì´ê°€ ê°™ì„ ë–„ ì°¸
         return ptr == word.size();
-    if (wc[ptr] == '*') {   //*°¡ ³ª¿Ô´Ù¸é
-        for (int j = 0; j + ptr <= word.size(); j++) { //*°¡ 0±ÛÀÚºÎÅÍ ÇÑ±ÛÀÚ¾¿ ´Ã·Á°¡¸ç ¸î ±ÛÀÚ¸¦ Â÷ÁöÇÏ´ÂÁö Ã£¾Æº»´Ù
+    if (wc[ptr] == '*') {   //*ê°€ ë‚˜ì™”ë‹¤ë©´
+        for (int j = 0; j + ptr <= word.size(); j++) { //*ê°€ 0ê¸€ìžë¶€í„° í•œê¸€ìžì”© ëŠ˜ë ¤ê°€ë©° ëª‡ ê¸€ìžë¥¼ ì°¨ì§€í•˜ëŠ”ì§€ ì°¾ì•„ë³¸ë‹¤
             if (func(wc.substr(ptr + 1), word.substr(ptr + j))) {
                 return true;
             }
         }
     }
-    //°á±¹ ÇÏ³ªµµ ¸ÂÁö ¾Ê°Ô µÉ ‹š
+    //ê²°êµ­ í•˜ë‚˜ë„ ë§žì§€ ì•Šê²Œ ë  ë–„
     return false;
 }
 

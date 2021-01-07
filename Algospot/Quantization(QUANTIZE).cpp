@@ -1,29 +1,10 @@
-/*
-¹®Á¦ - Quantization(QUANTIZE)(https://algospot.com/judge/problem/read/QUANTIZE)
- Quantization (¾çÀÚÈ­) °úÁ¤Àº, ´õ ³ÐÀº ¹üÀ§¸¦ °®´Â °ªµéÀ» ÀÛÀº ¹üÀ§¸¦ °®´Â °ªµé·Î ±Ù»çÇØ Ç¥ÇöÇÔÀ¸·Î½á ÀÚ·á¸¦ ¼Õ½Ç ¾ÐÃàÇÏ´Â °úÁ¤À» ¸»ÇÑ´Ù.
- ¿¹¸¦ µé¾î 16ºñÆ® JPG ÆÄÀÏÀ» 4ÄÃ·¯ GIF ÆÄÀÏ·Î º¯È¯ÇÏ´Â °ÍÀº RGB »ö °ø°£ÀÇ »öµéÀ» 4ÄÃ·¯ ÁßÀÇ ÇÏ³ª·Î ¾çÀÚÈ­ÇÏ´Â °ÍÀÌ°í,
- Å°°¡ 161, 164, 170, 178 ÀÎ ÇÐ»ý ³ÝÀ» '160´ë µÑ, 170´ë µÑ' ÀÌ¶ó°í Ãà¾àÇØ Ç¥ÇöÇÏ´Â °Í ¶ÇÇÑ ¾çÀÚÈ­¶ó°í ÇÒ ¼ö ÀÖ´Ù.
+ï»¿/*
+ë¬¸ì œ - Quantization(QUANTIZE)(https://algospot.com/judge/problem/read/QUANTIZE)
 
- 1000 ÀÌÇÏÀÇ ÀÚ¿¬¼öµé·Î ±¸¼ºµÈ ¼ö¿­À» ÃÖ´ë SÁ¾·ù ÀÇ °ª¸¸À» »ç¿ëÇÏµµ·Ï ¾çÀÚÈ­ÇÏ°í ½Í´Ù.
- ÀÌ ¶§ ¾çÀÚÈ­µÈ ¼ýÀÚ´Â ¿ø·¡ ¼ö¿­¿¡ ¾ø´Â ¼ýÀÚÀÏ ¼öµµ ÀÖ´Ù. ¾çÀÚÈ­¸¦ ÇÏ´Â ¹æ¹ýÀº ¿©·¯ °¡Áö°¡ ÀÖ´Ù.
- ¼ö¿­ 1 2 3 4 5 6 7 8 9 10 À» 2°³ÀÇ ¼ýÀÚ¸¸À» ½á¼­ Ç¥ÇöÇÏ·Á¸é, 3 3 3 3 3 7 7 7 7 7 °ú °°ÀÌ ÇÒ ¼öµµ ÀÖ°í, 1 1 1 1 1 10 10 10 10 10 À¸·Î ÇÒ ¼öµµ ÀÖ´Ù.
- ¿ì¸®´Â ÀÌ Áß, °¢ ¼ýÀÚº° ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀ» ÃÖ¼ÒÈ­ÇÏ´Â ¾çÀÚÈ­ °á°ú¸¦ ¾Ë°í ½Í´Ù.
-
- ¿¹¸¦ µé¾î, ¼ö¿­ 1 2 3 4 5 ¸¦ 1 1 3 3 3 À¸·Î ¾çÀÚÈ­ÇÏ¸é ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀº 0+1+0+1+4=6 ÀÌ µÇ°í, 2 2 2 4 4 ·Î ¾çÀÚÈ­ÇÏ¸é ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀº 1+0+1+0+1=3 ÀÌ µÈ´Ù.
- ¼ö¿­°ú S °¡ ÁÖ¾îÁú ¶§, °¡´ÉÇÑ ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀÇ ÃÖ¼Ò°ªÀ» ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
-
-ÀÔ·Â
- ÀÔ·ÂÀÇ Ã¹ ÁÙ¿¡´Â Å×½ºÆ® ÄÉÀÌ½ºÀÇ ¼ö C (1 <= C <= 50) °¡ ÁÖ¾îÁø´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½ºÀÇ Ã¹ ÁÙ¿¡´Â ¼ö¿­ÀÇ ±æÀÌ N (1 <= N <= 100), »ç¿ëÇÒ ¼ýÀÚÀÇ ¼ö S (1 <= S <= 10) ÀÌ ÁÖ¾îÁø´Ù.
- ±× ´ÙÀ½ ÁÙ¿¡ N°³ÀÇ Á¤¼ö·Î ¼ö¿­ÀÇ ¼ýÀÚµéÀÌ ÁÖ¾îÁø´Ù. ¼ö¿­ÀÇ ¸ðµç ¼ö´Â 1000 ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÌ´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù, ÁÖ¾îÁø ¼ö¿­À» ÃÖ´ë S °³ÀÇ ¼ö·Î ¾çÀÚÈ­ÇÒ ¶§ ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀÇ ÃÖ¼Ò°ªÀ» Ãâ·ÂÇÑ´Ù.
-
-Ç®ÀÌ
- ÀÌ ¹®Á¦ÀÇ ÇÙ½ÉÀº ÁÖ¾îÁø ¼ö¿­À» ¾çÀÚÈ­½ÃÅ³ ¼öÀÇ °³¼ö¸¸Å­ ¹­À½À» Áö¾îÁÖ´Â °ÍÀÌ´Ù.
- ÀÌ ¶§ °°Àº ¾çÀÚÈ­µÈ ¼ö¸¦ °¡Áö´Â ¼öµéÀº ¼­·Î ÀÎÁ¢ÇÒ °ÍÀÌ¹Ç·Î ÀÔ·Â¹ÞÀº ¼ö¿­À» Á¤·ÄÇÑ ÈÄ ¾Õ¿¡¼­ºÎÅÍ ÇÑ ¹­À½¿¡ ¸î°³¾¿ ³ÖÀ»Áö ±¸ºÐÁö¾îÁÖ¸é µÈ´Ù.
- ¶ÇÇÑ ÇØ´ç ¹®Á¦¿¡¼­ ÇÑ ¹­À½ÀÌ °¡Áö´Â ÃÖ¼Ò ¿ÀÂ÷ÀÇ Á¦°öÀÇ ÇÕÀº °á±¹ ºÐ»êÀ» ¶æÇÏ´Â °ÍÀÌ¹Ç·Î ¾çÀÚ¼ö´Â ÇØ´ç ¹­À½¿¡ ÀÖ´Â ¼öµéÀÇ Æò±ÕÀÌ´Ù.
+í’€ì´
+ ì´ ë¬¸ì œì˜ í•µì‹¬ì€ ì£¼ì–´ì§„ ìˆ˜ì—´ì„ ì–‘ìží™”ì‹œí‚¬ ìˆ˜ì˜ ê°œìˆ˜ë§Œí¼ ë¬¶ìŒì„ ì§€ì–´ì£¼ëŠ” ê²ƒì´ë‹¤.
+ ì´ ë•Œ ê°™ì€ ì–‘ìží™”ëœ ìˆ˜ë¥¼ ê°€ì§€ëŠ” ìˆ˜ë“¤ì€ ì„œë¡œ ì¸ì ‘í•  ê²ƒì´ë¯€ë¡œ ìž…ë ¥ë°›ì€ ìˆ˜ì—´ì„ ì •ë ¬í•œ í›„ ì•žì—ì„œë¶€í„° í•œ ë¬¶ìŒì— ëª‡ê°œì”© ë„£ì„ì§€ êµ¬ë¶„ì§€ì–´ì£¼ë©´ ëœë‹¤.
+ ë˜í•œ í•´ë‹¹ ë¬¸ì œì—ì„œ í•œ ë¬¶ìŒì´ ê°€ì§€ëŠ” ìµœì†Œ ì˜¤ì°¨ì˜ ì œê³±ì˜ í•©ì€ ê²°êµ­ ë¶„ì‚°ì„ ëœ»í•˜ëŠ” ê²ƒì´ë¯€ë¡œ ì–‘ìžìˆ˜ëŠ” í•´ë‹¹ ë¬¶ìŒì— ìžˆëŠ” ìˆ˜ë“¤ì˜ í‰ê· ì´ë‹¤.
 */
 
 
@@ -47,7 +28,7 @@ void reset() {
     }
 }
 
-int variance(int idx, int n) {  //idxºÎÅÍ n°³ÀÇ ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀÇ ÃÖ¼Ò°ªÀ» ±¸ÇÏ´Â ÇÔ¼ö
+int variance(int idx, int n) {  //idxë¶€í„° nê°œì˜ ì˜¤ì°¨ ì œê³±ì˜ í•©ì˜ ìµœì†Œê°’ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
     int sum = 0;
     int avg = 0;
     int ret1 = 0, ret2 = 0;
@@ -63,19 +44,19 @@ int variance(int idx, int n) {  //idxºÎÅÍ n°³ÀÇ ¿ÀÂ÷ Á¦°öÀÇ ÇÕÀÇ ÃÖ¼Ò°ªÀ» ±¸ÇÏ´Â
     return min(ret1, ret2);
 }
 
-int quantize(int idx, int s) {  //idxºÎÅÍ ¼ö¿­À» s°¡Áö·Î ³ª´©¾î ¾çÀÚÈ­ÇÏ´Â ÇÔ¼ö
-    if (idx == v.size())    //³²Àº ¼öµéÀÌ ¾øÀ¸¸é 0 ¹ÝÈ¯
+int quantize(int idx, int s) {  //idxë¶€í„° ìˆ˜ì—´ì„ sê°€ì§€ë¡œ ë‚˜ëˆ„ì–´ ì–‘ìží™”í•˜ëŠ” í•¨ìˆ˜
+    if (idx == v.size())    //ë‚¨ì€ ìˆ˜ë“¤ì´ ì—†ìœ¼ë©´ 0 ë°˜í™˜
         return 0;
     int& ret = cache[idx][s];
-    if (ret != MAXNUM)          //ÀÌ¹Ì ÇÑ¹ø ±¸ÇÑ °ªÀÌ¸é ¹ÝÈ¯
+    if (ret != MAXNUM)          //ì´ë¯¸ í•œë²ˆ êµ¬í•œ ê°’ì´ë©´ ë°˜í™˜
         return ret;
-    if (s == 1)                  //¸¶Áö¸· ¹­À½ÀÌ¸é ³²Àº ¼öµéÀÇ ÃÖ¼Ò ¿ÀÂ÷ Á¦°öÇÕÀ» ¹ÝÈ¯
+    if (s == 1)                  //ë§ˆì§€ë§‰ ë¬¶ìŒì´ë©´ ë‚¨ì€ ìˆ˜ë“¤ì˜ ìµœì†Œ ì˜¤ì°¨ ì œê³±í•©ì„ ë°˜í™˜
         return variance(idx, v.size() - idx);
-    if (s > v.size() - idx)     //¸¸ÀÏ Á¶°¢ ¼ö°¡ ³²Àº ¼ýÀÚÀÇ °³¼öº¸´Ù ¸¹À¸¸é ¼ýÀÚÀÇ °³¼ö¸¸Å­À¸·Î ¹Ù²ãÁÜ
+    if (s > v.size() - idx)     //ë§Œì¼ ì¡°ê° ìˆ˜ê°€ ë‚¨ì€ ìˆ«ìžì˜ ê°œìˆ˜ë³´ë‹¤ ë§Žìœ¼ë©´ ìˆ«ìžì˜ ê°œìˆ˜ë§Œí¼ìœ¼ë¡œ ë°”ê¿”ì¤Œ
         s = v.size() - idx;
     if (s > 10)
         s = 10;
-    for (int i = 1; i + idx <= v.size() - s + 1; i++) { //ÇöÀç idx¿¡¼­ i°³¸¸Å­ ¹­°í ³ª¸ÓÁö¸¦ s-1¹­À½À¸·Î ¾çÀÚÈ­
+    for (int i = 1; i + idx <= v.size() - s + 1; i++) { //í˜„ìž¬ idxì—ì„œ iê°œë§Œí¼ ë¬¶ê³  ë‚˜ë¨¸ì§€ë¥¼ s-1ë¬¶ìŒìœ¼ë¡œ ì–‘ìží™”
         ret = min(ret, variance(idx, i) + quantize(idx + i, s - 1));
     }
     return ret;
@@ -92,7 +73,7 @@ int main() {
             cin >> tmp;
             v.push_back(tmp);
         }
-        sort(v.begin(), v.end(), greater<int>());   //¼ö¿­À» ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+        sort(v.begin(), v.end(), greater<int>());   //ìˆ˜ì—´ì„ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
         cout << quantize(0, s) << endl;
     }
     return 0;

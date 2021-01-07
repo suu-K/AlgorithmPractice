@@ -1,35 +1,18 @@
-/*
-¹®Á¦ - ÆÒ¹ÌÆÃ(FANMEETING)(https://algospot.com/judge/problem/read/FANMEETING)
- °¡Àå ¸â¹ö°¡ ¸¹Àº ¾ÆÀÌµ¹ ±×·ìÀ¸·Î ±â³×½º ºÏ¿¡ ¿Ã¶ó ÀÖ´Â È¥¼º ÆË ±×·ì ÇÏÀÌÆÛ½Ã´Ï¾î°¡ µ¥ºß 10ÁÖ³â ±â³ä ÆÒ ¹ÌÆÃÀ» °³ÃÖÇß½À´Ï´Ù.
- ÆÒ ¹ÌÆÃÀÇ ÇÑ ¼ø¼­·Î, ¸â¹öµé°ú Âü°¡ÇÑ ÆÒµéÀÌ Æ÷¿ËÀ» ÇÏ´Â Çà»ç¸¦ °®±â·Î Çß½À´Ï´Ù. ÇÏÀÌÆÛ½Ã´Ï¾îÀÇ ¸â¹öµéÀº ¿ì¼± ¹«´ë¿¡ ÀÏ·Ä·Î ¼·´Ï´Ù.
- ÆÒ ¹ÌÆÃ¿¡ Âü°¡ÇÑ M¸íÀÇ ÆÒµéÀº ÁÙÀ» ¼­¼­ ¸Ç ¿À¸¥ÂÊ ¸â¹ö¿¡¼­ºÎÅÍ ½ÃÀÛÇØ ÇÑ ¸í¾¿ ¿ÞÂÊÀ¸·Î ¿òÁ÷ÀÌ¸ç ¸â¹öµé°ú ÇÏ³ª¾¿ Æ÷¿ËÀ» ÇÕ´Ï´Ù.
- ¸ðµç ÆÒµéÀº µ¿½Ã¿¡ ÇÑ ¸í¾¿ ¿òÁ÷ÀÔ´Ï´Ù. ¾Æ·¡ ±×¸²Àº Çà»ç °úÁ¤ÀÇ ÀÏºÎ¸¦ º¸¿©ÁÝ´Ï´Ù. a~d´Â ³× ¸íÀÇ ÇÏÀÌÆÛ½Ã´Ï¾î ¸â¹öµéÀÌ°í, 0~5´Â ¿©¼¸ ¸íÀÇ ÆÒµéÀÔ´Ï´Ù.
+ï»¿/*
+ë¬¸ì œ - íŒ¬ë¯¸íŒ…(FANMEETING)(https://algospot.com/judge/problem/read/FANMEETING)
 
- ÇÏÁö¸¸ ÇÏÀÌÆÛ½Ã´Ï¾îÀÇ ³²¼º ¸â¹öµéÀÌ ³²¼º ÆÒ°ú Æ÷¿ËÇÏ±â°¡ ¹Î¸ÁÇÏ´Ù°í ¿©°Ü¼­, ³²¼º ÆÒ°ú´Â Æ÷¿Ë ´ë½Å ¾Ç¼ö¸¦ ÇÏ±â·Î Çß½À´Ï´Ù.
- ÁÙÀ» ¼± ¸â¹öµé°ú ÆÒµéÀÇ ¼ºº°ÀÌ °¢°¢ ÁÖ¾îÁú ¶§ ÆÒ ¹ÌÆÃÀÌ ÁøÇàµÇ´Â °úÁ¤¿¡¼­ ÇÏÀÌÆÛ½Ã´Ï¾îÀÇ ¸ðµç ¸â¹ö°¡ µ¿½Ã¿¡ Æ÷¿ËÀ» ÇÏ´Â ÀÏÀÌ ¸î ¹øÀÌ³ª ÀÖ´ÂÁö °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
-
-ÀÔ·Â
- Ã¹ ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö C (C¡Â20)°¡ ÁÖ¾îÁý´Ï´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½º´Â ¸â¹öµéÀÇ ¼ºº°°ú ÆÒµéÀÇ ¼ºº°À» °¢°¢ ³ªÅ¸³»´Â µÎ ÁÙÀÇ ¹®ÀÚ¿­·Î ±¸¼ºµÇ¾î ÀÖ½À´Ï´Ù.
- °¢ ¹®ÀÚ¿­Àº ¿ÞÂÊºÎÅÍ ¿À¸¥ÂÊ ¼ø¼­´ë·Î °¢ »ç¶÷µéÀÇ ¼ºº°À» ³ªÅ¸³À´Ï´Ù.
- MÀº ÇØ´çÇÏ´Â »ç¶÷ÀÌ ³²ÀÚ, F´Â ÇØ´çÇÏ´Â »ç¶÷ÀÌ ¿©ÀÚÀÓÀ» ³ªÅ¸³À´Ï´Ù.
- ¸â¹öÀÇ ¼ö¿Í ÆÒÀÇ ¼ö´Â ¸ðµÎ 1 ÀÌ»ó 200,000 ÀÌÇÏÀÇ Á¤¼öÀÌ¸ç, ¸â¹öÀÇ ¼ö´Â Ç×»ó ÆÒÀÇ ¼ö ÀÌÇÏÀÔ´Ï´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù ÇÑ ÁÙ¿¡ ¸ðµç ¸â¹öµéÀÌ Æ÷¿ËÀ» ÇÏ´Â ÀÏÀÌ ¸î ¹øÀÌ³ª ÀÖ´ÂÁö Ãâ·ÂÇÕ´Ï´Ù.
-
-Ç®ÀÌ
- ÀÌ ¹®Á¦¸¦ Ç® ‹š ÀÌÁßfor¹®À» ÀÌ¿ëÇØ ¿ÏÀüÅ½»öÀ» ÇÒ ¼öµµ ÀÖ´Ù.
- ÇÏÁö¸¸ ³î¶ø°Ôµµ Ä«¶óÃ÷¹Ù ¾Ë°í¸®ÁòÀ» ÀÌ¿ëÇÏ¸é Ç® ¼ö ÀÖ´Ù´Â »ç½ÇÀ» ¾Ë°Ô µÇ¾ú´Ù.
- M=1, F=0À¸·Î ÇÏ¿© µÎ ¼ö¸¦ °öÇÏ¸é °¢ ÀÚ¸®¼öÀÇ °ªÀÌ °¢ ¸â¹öµé°ú ÆÒµéÀÇ ³²³àÁ¶ÇÕÀ» ³ªÅ¸³»°Ô µÈ´Ù.
- ³²ÀÚ³¢¸® ¸¸³¯ °æ¿ì 1, ±× ¿ÜÀÇ °æ¿ì´Â 0ÀÌ µÇ¹Ç·Î ÀÌ¸¦ ÀÌ¿ëÇÏ¿© Æ÷¿Ë ¿©ºÎ¸¦ ÆÇº°ÇÒ ¼ö ÀÖ´Ù.
+í’€ì´
+ ì´ ë¬¸ì œë¥¼ í’€ ë–„ ì´ì¤‘forë¬¸ì„ ì´ìš©í•´ ì™„ì „íƒìƒ‰ì„ í•  ìˆ˜ë„ ìžˆë‹¤.
+ í•˜ì§€ë§Œ ë†€ëžê²Œë„ ì¹´ë¼ì¸ ë°” ì•Œê³ ë¦¬ì¦˜ì„ ì´ìš©í•˜ë©´ í’€ ìˆ˜ ìžˆë‹¤ëŠ” ì‚¬ì‹¤ì„ ì•Œê²Œ ë˜ì—ˆë‹¤.
+ M=1, F=0ìœ¼ë¡œ í•˜ì—¬ ë‘ ìˆ˜ë¥¼ ê³±í•˜ë©´ ê° ìžë¦¬ìˆ˜ì˜ ê°’ì´ ê° ë©¤ë²„ë“¤ê³¼ íŒ¬ë“¤ì˜ ë‚¨ë…€ì¡°í•©ì„ ë‚˜íƒ€ë‚´ê²Œ ëœë‹¤.
+ ë‚¨ìžë¼ë¦¬ ë§Œë‚  ê²½ìš° 1, ê·¸ ì™¸ì˜ ê²½ìš°ëŠ” 0ì´ ë˜ë¯€ë¡œ ì´ë¥¼ ì´ìš©í•˜ì—¬ í¬ì˜¹ ì—¬ë¶€ë¥¼ íŒë³„í•  ìˆ˜ ìžˆë‹¤.
 */
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-void nomalize(vector<int>& c) { //ÀÚ¸®¼ö ¿Ã¸²À» Ã³¸®ÇÏ´Â ÇÔ¼ö
+void nomalize(vector<int>& c) { //ìžë¦¬ìˆ˜ ì˜¬ë¦¼ì„ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜
     int cn = c.size();
     c.push_back(0);
     for (int i = 0; i < cn; i++) {
@@ -46,7 +29,7 @@ void nomalize(vector<int>& c) { //ÀÚ¸®¼ö ¿Ã¸²À» Ã³¸®ÇÏ´Â ÇÔ¼ö
     while (c.size() > 1 && c.back() == 0) c.pop_back();
 }
 
-vector<int> multiply(vector<int>& a, vector<int>& b) {    //a*b ¹ÝÈ¯ÇÏ´Â ½Ã°£º¹Àâµµ O(n^n)ÀÇ ÇÔ¼ö
+vector<int> multiply(vector<int>& a, vector<int>& b) {    //a*b ë°˜í™˜í•˜ëŠ” ì‹œê°„ë³µìž¡ë„ O(n^n)ì˜ í•¨ìˆ˜
     int an = a.size();
     int bn = b.size();
     vector<int> c(an + bn + 1, 0);
@@ -78,13 +61,13 @@ void subFrom(vector<int>& a, vector<int>& b) {
 vector<int> karatsuba(vector<int> a, vector<int> b) {
     int an = a.size(), bn = b.size();
     int half = an / 2;
-    if (an < bn)    //aº¸´Ù bÀÇ ÀÚ¸®¼ö°¡ ´õ Å« °æ¿ì
+    if (an < bn)    //aë³´ë‹¤ bì˜ ìžë¦¬ìˆ˜ê°€ ë” í° ê²½ìš°
         return karatsuba(b, a);
-    if (an == 0 || bn == 0) //a³ª b°¡ 0ÀÎ °æ¿ì
+    if (an == 0 || bn == 0) //aë‚˜ bê°€ 0ì¸ ê²½ìš°
         return vector<int>();
-    if (an < 50)    //aÀÇ ÀÚ¸®¼ö°¡ 50ÀÌÇÏ¸é ±×³É °è»ê
+    if (an < 50)    //aì˜ ìžë¦¬ìˆ˜ê°€ 50ì´í•˜ë©´ ê·¸ëƒ¥ ê³„ì‚°
         return multiply(a, b);
-    //a, b¸¦ °¢°¢ ÂÉ°µ´Ù
+    //a, bë¥¼ ê°ê° ìª¼ê° ë‹¤
     vector<int> a0(a.begin(), a.begin() + half);
     vector<int> a1(a.begin() + half, a.end());
     vector<int> b0(b.begin(), b.begin() + half);

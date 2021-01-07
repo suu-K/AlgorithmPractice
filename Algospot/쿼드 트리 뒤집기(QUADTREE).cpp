@@ -1,29 +1,9 @@
-/*
-¹®Á¦ Äõµå Æ®¸® µÚÁý±â(QUADTREE)(https://algospot.com/judge/problem/read/QUADTREE)
- ´ë·®ÀÇ ÁÂÇ¥ µ¥ÀÌÅÍ¸¦ ¸Þ¸ð¸® ¾È¿¡ ¾ÐÃàÇØ ÀúÀåÇÏ±â À§ÇØ »ç¿ëÇÏ´Â ¿©·¯ ±â¹ý Áß Äõµå Æ®¸®(quad tree)¶õ °ÍÀÌ ÀÖ½À´Ï´Ù.
- ÁÖ¾îÁø °ø°£À» Ç×»ó 4°³·Î ºÐÇÒÇØ Àç±ÍÀûÀ¸·Î Ç¥ÇöÇÏ±â ¶§¹®¿¡ Äõµå Æ®¸®¶ó´Â ÀÌ¸§ÀÌ ºÙ¾ú´Âµ¥, ÀÌÀÇ À¯¸íÇÑ »ç¿ëÃ³ Áß ÇÏ³ª´Â °ËÀº »ö°ú Èò »ö¹Û¿¡ ¾ø´Â Èæ¹é ±×¸²À» ¾ÐÃàÇØ Ç¥ÇöÇÏ´Â °ÍÀÔ´Ï´Ù.
- Äõµå Æ®¸®´Â 2N ¡¿ 2N Å©±âÀÇ Èæ¹é ±×¸²À» ´ÙÀ½°ú °°Àº °úÁ¤À» °ÅÃÄ ¹®ÀÚ¿­·Î ¾ÐÃàÇÕ´Ï´Ù.
+ï»¿/*
+ë¬¸ì œ ì¿¼ë“œ íŠ¸ë¦¬ ë’¤ì§‘ê¸°(QUADTREE)(https://algospot.com/judge/problem/read/QUADTREE)
 
- ÀÌ ±×¸²ÀÇ ¸ðµç ÇÈ¼¿ÀÌ °ËÀº »öÀÏ °æ¿ì ÀÌ ±×¸²ÀÇ Äõµå Æ®¸® ¾ÐÃà °á°ú´Â ±×¸²ÀÇ Å©±â¿¡ °ü°è¾øÀÌ b°¡ µË´Ï´Ù.
- ÀÌ ±×¸²ÀÇ ¸ðµç ÇÈ¼¿ÀÌ Èò »öÀÏ °æ¿ì ÀÌ ±×¸²ÀÇ Äõµå Æ®¸® ¾ÐÃà °á°ú´Â ±×¸²ÀÇ Å©±â¿¡ °ü°è¾øÀÌ w°¡ µË´Ï´Ù.
- ¸ðµç ÇÈ¼¿ÀÌ °°Àº »öÀÌ ¾Æ´Ï¶ó¸é, Äõµå Æ®¸®´Â ÀÌ ±×¸²À» °¡·Î ¼¼·Î·Î °¢°¢ 2µîºÐÇØ 4°³ÀÇ Á¶°¢À¸·Î ÂÉ°µ µÚ °¢°¢À» Äõµå Æ®¸® ¾ÐÃàÇÕ´Ï´Ù.
- ÀÌ¶§ ÀüÃ¼ ±×¸²ÀÇ ¾ÐÃà °á°ú´Â x(¿ÞÂÊ À§ ºÎºÐÀÇ ¾ÐÃà °á°ú)(¿À¸¥ÂÊ À§ ºÎºÐÀÇ ¾ÐÃà °á°ú)(¿ÞÂÊ ¾Æ·¡ ºÎºÐÀÇ ¾ÐÃà °á°ú)(¿À¸¥ÂÊ ¾Æ·¡ ºÎºÐÀÇ ¾ÐÃà °á°ú)°¡ µË´Ï´Ù.
- ¿¹¸¦ µé¾î ±×¸² (a)ÀÇ ¿ÞÂÊ À§ 4ºÐ¸éÀº xwwwb·Î ¾ÐÃàµË´Ï´Ù.
-
- ±×¸² (a)¿Í ±×¸² (b)´Â 16¡¿16 Å©±âÀÇ ¿¹Á¦ ±×¸²À» Äõµå Æ®¸®°¡ ¾î¶»°Ô ºÐÇÒÇØ ¾ÐÃàÇÏ´ÂÁö¸¦ º¸¿©ÁÝ´Ï´Ù.
- ÀÌ¶§ ÀüÃ¼ ±×¸²ÀÇ ¾ÐÃà °á°ú´Â xxwww bxwxw bbbww xxxww bbbww wwbb°¡ µË´Ï´Ù.
- Äõµå Æ®¸®·Î ¾ÐÃàµÈ Èæ¹é ±×¸²ÀÌ ÁÖ¾îÁ³À» ¶§, ÀÌ ±×¸²À» »óÇÏ·Î µÚÁýÀº ±×¸² À» Äõµå Æ®¸® ¾ÐÃàÇØ¼­ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
-
-ÀÔ·Â
- Ã¹ ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö C (C¡Â50)°¡ ÁÖ¾îÁý´Ï´Ù.
- ±× ÈÄ CÁÙ¿¡ ÇÏ³ª¾¿ Äõµå Æ®¸®·Î ¾ÐÃàÇÑ ±×¸²ÀÌ ÁÖ¾îÁý´Ï´Ù.
- ¸ðµç ¹®ÀÚ¿­ÀÇ ±æÀÌ´Â 1,000 ÀÌÇÏÀÌ¸ç, ¿øº» ±×¸²ÀÇ Å©±â´Â 220 ¡¿ 220 À» ³ÑÁö ¾Ê½À´Ï´Ù.
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º´ç ÇÑ ÁÙ¿¡ ÁÖ¾îÁø ±×¸²À» »óÇÏ·Î µÚÁýÀº °á°ú¸¦ Äõµå Æ®¸® ¾ÐÃàÇØ¼­ Ãâ·ÂÇÕ´Ï´Ù.
-
-Ç®ÀÌ
- Äõµå Æ®¸®´Â Àç±ÍÀûÀ¸·Î Ç¥ÇöµÈ´Ù.
- ÀÌ¸¦ ½±°Ô Ã³¸® ÇÏ±â À§ÇØ¼­´Â ÀÌ°Í ¶ÇÇÑ Àç±ÍÀûÀ¸·Î Ã³¸®ÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+í’€ì´
+ ì¿¼ë“œ íŠ¸ë¦¬ëŠ” ìž¬ê·€ì ìœ¼ë¡œ í‘œí˜„ëœë‹¤.
+ ì´ë¥¼ ì‰½ê²Œ ì²˜ë¦¬ í•˜ê¸° ìœ„í•´ì„œëŠ” ì´ê²ƒ ë˜í•œ ìž¬ê·€ì ìœ¼ë¡œ ì²˜ë¦¬í•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤.
 */
 
 #include <iostream>
@@ -32,18 +12,18 @@ using namespace std;
 
 string reverse(string picture) {
     string tmp = picture;
-    string part[4]; //part[0]-¿ì»ó, part[1]-ÁÂ»ó, part[2]-¿ìÇÏ, part[3]-ÁÂÇÏ
+    string part[4]; //part[0]-ìš°ìƒ, part[1]-ì¢Œìƒ, part[2]-ìš°í•˜, part[3]-ì¢Œí•˜
     int n = 4;
-    if (tmp.size() == 1) //¹®ÀÚ¿­ÀÌ ÇÏ³ªÀÏ °æ¿ì, Áï ±×¸²ÀÌ ´Ü»öÀÏ °æ¿ì
+    if (tmp.size() == 1) //ë¬¸ìžì—´ì´ í•˜ë‚˜ì¼ ê²½ìš°, ì¦‰ ê·¸ë¦¼ì´ ë‹¨ìƒ‰ì¼ ê²½ìš°
         return tmp;
-    else if (tmp[0] != 'x') //±×¸²ÀÇ Á¶°¢ÀÌ ´Ü»öÀÏ °æ¿ì
+    else if (tmp[0] != 'x') //ê·¸ë¦¼ì˜ ì¡°ê°ì´ ë‹¨ìƒ‰ì¼ ê²½ìš°
         return tmp.substr(0, 1);
-    for (int i = 1, j = 0; i <= n; i++, j++) {  //4°³ÀÇ Á¶°­À» µû·Îµû·Î ÀúÀå
+    for (int i = 1, j = 0; i <= n; i++, j++) {  //4ê°œì˜ ì¡°ê°•ì„ ë”°ë¡œë”°ë¡œ ì €ìž¥
         part[j] = reverse(tmp.substr(i));
-        i += (part[j].size() - 1);    //x·Î ÀÌ·ç¾îÁø Á¶°¢À» °Ç³Ê¶Ú´Ù.
+        i += (part[j].size() - 1);    //xë¡œ ì´ë£¨ì–´ì§„ ì¡°ê°ì„ ê±´ë„ˆë›´ë‹¤.
         n += (part[j].size() - 1);
     }
-    tmp = "x" + part[2] + part[3] + part[0] + part[1];  //°¢ Á¶°­ÀÇ »óÇÏ¸¦ µÚÁý´Â´Ù.
+    tmp = "x" + part[2] + part[3] + part[0] + part[1];  //ê° ì¡°ê°•ì˜ ìƒí•˜ë¥¼ ë’¤ì§‘ëŠ”ë‹¤.
     return tmp;
 }
 

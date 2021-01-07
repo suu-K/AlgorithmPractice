@@ -1,8 +1,8 @@
-/*
-ÇÇµå¹é - Äõµå Æ®¸® µÚÁý±â(QUADTREE)(https://algospot.com/judge/problem/read/QUADTREE)
- Ã¥ÀÇ Á¤´ä¿¡¼­´Â iterator¸¦ ÀÌ¿ëÇØ Á» ´õ ±ò²ûÇÏ°Ô ¹®Á¦¸¦ Ç®¾îÁÖ¾ú´Ù.
- Ã³À½¿¡ ¹®Á¦¸¦ Ç®¾úÀ» ‹š °¡Àå ±î´Ù·Î¿ü´ø ºÎºÐÀÌ ´ÙÀ½ ¹®ÀÚ¿­·Î ¾î¶»°Ô ³Ñ¾î°¡´Â°¡ ¿´´Ù.
- ³ªÀÇ °æ¿ì¿¡´Â ¹ÝÈ¯µÈ ¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ÀÌ¿ëÇßÁö¸¸ ÀÌÃ³·³ iterator¸¦ ÀÌ¿ëÇØ ÇÑÄ­¾¿ ÀüÁø½ÃÅ°¸é ÈÎ¾À ÄÚµå°¡ ±ò²ûÇØÁø´Ù.
+ï»¿/*
+í”¼ë“œë°± - ì¿¼ë“œ íŠ¸ë¦¬ ë’¤ì§‘ê¸°(QUADTREE)(https://algospot.com/judge/problem/read/QUADTREE)
+ ì±…ì˜ ì •ë‹µì—ì„œëŠ” iteratorë¥¼ ì´ìš©í•´ ì¢€ ë” ê¹”ë”í•˜ê²Œ ë¬¸ì œë¥¼ í’€ì–´ì£¼ì—ˆë‹¤.
+ ì²˜ìŒì— ë¬¸ì œë¥¼ í’€ì—ˆì„ ë–„ ê°€ìž¥ ê¹Œë‹¤ë¡œì› ë˜ ë¶€ë¶„ì´ ë‹¤ìŒ ë¬¸ìžì—´ë¡œ ì–´ë–»ê²Œ ë„˜ì–´ê°€ëŠ”ê°€ ì˜€ë‹¤.
+ ë‚˜ì˜ ê²½ìš°ì—ëŠ” ë°˜í™˜ëœ ë¬¸ìžì—´ì˜ ê¸¸ì´ë¥¼ ì´ìš©í–ˆì§€ë§Œ ì´ì²˜ëŸ¼ iteratorë¥¼ ì´ìš©í•´ í•œì¹¸ì”© ì „ì§„ì‹œí‚¤ë©´ í›¨ì”¬ ì½”ë“œê°€ ê¹”ë”í•´ì§„ë‹¤.
 */
 #include <iostream>
 #include <vector>

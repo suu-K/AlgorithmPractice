@@ -1,25 +1,9 @@
-/*
-¹®Á¦ - ÇÕÄ£ LIS(JLIS)(https://algospot.com/judge/problem/read/JLIS)
- ¾î¶² ¼ö¿­¿¡¼­ 0°³ ÀÌ»óÀÇ ¼ýÀÚ¸¦ Áö¿î °á°ú¸¦ ¿ø ¼ö¿­ÀÇ ºÎºÐ ¼ö¿­ÀÌ¶ó°í ºÎ¸¨´Ï´Ù. ¿¹¸¦ µé¾î '4 7 6'Àº '4 3 7 6 9'ÀÇ ºÎºÐ ¼ö¿­ÀÔ´Ï´Ù.
- Áßº¹µÈ ¼ýÀÚ°¡ ¾ø°í ¿À¸§ Â÷¼øÀ¸·Î Á¤·ÄµÇ¾î ÀÖ´Â ºÎºÐ ¼ö¿­µéÀ» °¡¸®ÄÑ Áõ°¡ ºÎºÐ ¼ö¿­ÀÌ¶ó°í ºÎ¸£Áö¿ä. ¿¹¸¦ µé¾î '3 6 9'´Â ¾ÕÀÇ ¼ö¿­ÀÇ Áõ°¡ ºÎºÐ ¼ö¿­ÀÔ´Ï´Ù.
- µÎ °³ÀÇ Á¤¼ö ¼ö¿­ A ¿Í B ¿¡¼­ °¢°¢ Áõ°¡ ºÎºÐ ¼ö¿­À» ¾òÀº µÚ ÀÌµéÀ» Å©±â ¼ø¼­´ë·Î ÇÕÄ£ °ÍÀ» ÇÕÄ£ Áõ°¡ ºÎºÐ ¼ö¿­ÀÌ¶ó°í ºÎ¸£±â·Î ÇÕ½Ã´Ù.
- ÀÌ Áß °¡Àå ±ä ¼ö¿­À» ÇÕÄ£ LIS(JLIS, Joined Longest Increasing Subsequence)ÀÌ¶ó°í ºÎ¸¨½Ã´Ù.
- ¿¹¸¦ µé¾î '1 3 4 7 9' Àº '1 9 4' ¿Í '3 4 7' ÀÇ JLISÀÔ´Ï´Ù. '1 9' ¿Í '3 4 7' À» ÇÕÃÄ '1 3 4 7 9'¸¦ ¾òÀ» ¼ö ÀÖ±â ¶§¹®ÀÌÁö¿ä.
- A ¿Í B °¡ ÁÖ¾îÁú ¶§, JLISÀÇ ±æÀÌ¸¦ °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
-
-ÀÔ·Â
- ÀÔ·ÂÀÇ Ã¹ ÁÙ¿¡´Â Å×½ºÆ® ÄÉÀÌ½ºÀÇ ¼ö c ( 1 <= c <= 50 ) °¡ ÁÖ¾îÁý´Ï´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½ºÀÇ Ã¹ ÁÙ¿¡´Â A ¿Í B ÀÇ ±æÀÌ n °ú m ÀÌ ÁÖ¾îÁý´Ï´Ù (1 <= n,m <= 100).
- ´ÙÀ½ ÁÙ¿¡´Â n °³ÀÇ Á¤¼ö·Î A ÀÇ ¿ø¼ÒµéÀÌ, ±× ´ÙÀ½ ÁÙ¿¡´Â m °³ÀÇ Á¤¼ö·Î B ÀÇ ¿ø¼ÒµéÀÌ ÁÖ¾îÁý´Ï´Ù.
- ¸ðµç ¿ø¼ÒµéÀº 32ºñÆ® ºÎÈ£ ÀÖ´Â Á¤¼ö¿¡ ÀúÀåÇÒ ¼ö ÀÖ½À´Ï´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù ÇÑ ÁÙ¿¡, JLIS ÀÇ ±æÀÌ¸¦ Ãâ·ÂÇÕ´Ï´Ù.
-
-Ç®ÀÌ
- ¾Õ¼­ Ç®¾ú´ø ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­(LIS) ¹®Á¦ÀÇ È®ÀåÆÇÀÌ´Ù. ÀÌ¹ø¿£ °¢ µÎ ¼ö¿­ÀÇ ºÎºÐ Áõ°¡¼ö¿­À» ÇÕÃÄ¼­ ÃÖ´ë°¡ µÇ¾ß ÇÏ¹Ç·Î ¾çÂÊ ¼ö¿­À» ¹ø°¥¾Æ°¡¸ç ¿ÏÀüÅ½»öÀ» ÁøÇàÇØ¾ß ÇÑ´Ù.
- Ã³À½¿¡´Â ÁÖ¾îÁö´Â ¼öµéÀÇ ¹üÀ§°¡ 32ºñÆ® Á¤¼öÇüÀÌ¶ó´Â °ÍÀ» ³õÃÄ °è¼Ó ¿À·ù¸¦ ³»¾ú´Ù.
- ÀÌ¸¦ ¸·±â À§ÇØ¼­´Â ÁÖ¾îÁö´Â ¼öµéÀÇ ÃÖ¼Ò°ªÀÌ intÇüÀÇ ÃÖ¼Ò°ªÀÌ¹Ç·Î Ã³À½ ½ÃÀÛÇÒ ¶§ µÎ´Â ÃÖ¼Ò°ªÀ» 64ºñÆ® Á¤¼öÇüÀÇ ÃÖ¼Ò°ªÀ¸·Î µÎ¾î¾ß ÇÑ´Ù.
+ï»¿/*
+ë¬¸ì œ - í•©ì¹œ LIS(JLIS)(https://algospot.com/judge/problem/read/JLIS)
+í’€ì´
+ ì•žì„œ í’€ì—ˆë˜ ìµœëŒ€ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´(LIS) ë¬¸ì œì˜ í™•ìž¥íŒì´ë‹¤. ì´ë²ˆì—” ê° ë‘ ìˆ˜ì—´ì˜ ë¶€ë¶„ ì¦ê°€ìˆ˜ì—´ì„ í•©ì³ì„œ ìµœëŒ€ê°€ ë˜ì•¼ í•˜ë¯€ë¡œ ì–‘ìª½ ìˆ˜ì—´ì„ ë²ˆê°ˆì•„ê°€ë©° ì™„ì „íƒìƒ‰ì„ ì§„í–‰í•´ì•¼ í•œë‹¤.
+ ì²˜ìŒì—ëŠ” ì£¼ì–´ì§€ëŠ” ìˆ˜ë“¤ì˜ ë²”ìœ„ê°€ 32ë¹„íŠ¸ ì •ìˆ˜í˜•ì´ë¼ëŠ” ê²ƒì„ ë†“ì³ ê³„ì† ì˜¤ë¥˜ë¥¼ ë‚´ì—ˆë‹¤.
+ ì´ë¥¼ ë§‰ê¸° ìœ„í•´ì„œëŠ” ì£¼ì–´ì§€ëŠ” ìˆ˜ë“¤ì˜ ìµœì†Œê°’ì´ intí˜•ì˜ ìµœì†Œê°’ì´ë¯€ë¡œ ì²˜ìŒ ì‹œìž‘í•  ë•Œ ë‘ëŠ” ìµœì†Œê°’ì„ 64ë¹„íŠ¸ ì •ìˆ˜í˜•ì˜ ìµœì†Œê°’ìœ¼ë¡œ ë‘ì–´ì•¼ í•œë‹¤.
 
 */
 
@@ -30,34 +14,34 @@
 
 using namespace std;
 
-const long long NEGINT = numeric_limits<long long>::min();  //64ºñÆ® Á¤¼ö ÃÖ¼Ò°ª
+const long long NEGINT = numeric_limits<long long>::min();  //64ë¹„íŠ¸ ì •ìˆ˜ ìµœì†Œê°’
 
-int a[100]; //¼ö¿­ a
-int b[100]; //¼ö¿­ b
-int cache[101][101];    //¸Þ¸ðÀÌÁ¦ÀÌ¼Ç¿ë Ä³½¬
-int n, m;   //a, bÀÇ °¢°¢ÀÇ ±æÀÌ
+int a[100]; //ìˆ˜ì—´ a
+int b[100]; //ìˆ˜ì—´ b
+int cache[101][101];    //ë©”ëª¨ì´ì œì´ì…˜ìš© ìºì‰¬
+int n, m;   //a, bì˜ ê°ê°ì˜ ê¸¸ì´
 
-int jlis(int idxA, int idxB) {  //a, bÀÇ °¢°¢ÀÇ ÀÎµ¥½º°ª
-    int& ret = cache[idxA + 1][idxB + 1];   //idxa, idxbºÎÅÍ ½ÃÀÛÇÏ´Â ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­ÀÇ °ª
-    if (ret != -1) return ret;              //ÀÌ¹Ì ±¸ÇÑ °ªÀÌ¶ó¸é ¹Ù·Î ¹ÝÈ¯
-    ret = 2;                                //a[idxA], b[idxB]°¡ Áõ°¡ ºÎºÐ ¼ö¿­À» ÀÌ·ê ¶§ÀÇ ÃÖ¼Ò°ª
+int jlis(int idxA, int idxB) {  //a, bì˜ ê°ê°ì˜ ì¸ë°ìŠ¤ê°’
+    int& ret = cache[idxA + 1][idxB + 1];   //idxa, idxbë¶€í„° ì‹œìž‘í•˜ëŠ” ìµœëŒ€ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì˜ ê°’
+    if (ret != -1) return ret;              //ì´ë¯¸ êµ¬í•œ ê°’ì´ë¼ë©´ ë°”ë¡œ ë°˜í™˜
+    ret = 2;                                //a[idxA], b[idxB]ê°€ ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì„ ì´ë£° ë•Œì˜ ìµœì†Œê°’
 
-    //ÇØ´ç ÀÎµ¦½º¿¡¼­ÀÇ ÃÖ´ë°ª ±¸ÇÏ±â
+    //í•´ë‹¹ ì¸ë±ìŠ¤ì—ì„œì˜ ìµœëŒ€ê°’ êµ¬í•˜ê¸°
     long long an = (idxA == -1 ? NEGINT : a[idxA]);
     long long bn = (idxB == -1 ? NEGINT : b[idxB]);
     long long maximum = max(an, bn);
-    //aÀÇ ´ÙÀ½ ¼ö°¡ ÇöÀçÀÇ ÃÖ´ë°ªº¸´Ù Å©´Ù¸é ÀÎµ¦½º ÀÌµ¿
+    //aì˜ ë‹¤ìŒ ìˆ˜ê°€ í˜„ìž¬ì˜ ìµœëŒ€ê°’ë³´ë‹¤ í¬ë‹¤ë©´ ì¸ë±ìŠ¤ ì´ë™
     for (int next = idxA + 1; next < n; next++)
         if (maximum < a[next])
             ret = max(ret, jlis(next, idxB) + 1);
-    //bÀÇ ´ÙÀ½ ¼ö°¡ ÇöÀçÀÇ ÃÖ´ë°ªº¸´Ù Å©´Ù¸é ÀÎµ¦½º ÀÌµ¿
+    //bì˜ ë‹¤ìŒ ìˆ˜ê°€ í˜„ìž¬ì˜ ìµœëŒ€ê°’ë³´ë‹¤ í¬ë‹¤ë©´ ì¸ë±ìŠ¤ ì´ë™
     for (int next = idxB + 1; next < m; next++)
         if (maximum < b[next])
             ret = max(ret, jlis(idxA, next) + 1);
     return ret;
 }
 
-//Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù ¹è¿­À» ÃÊ±âÈ­
+//í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ë§ˆë‹¤ ë°°ì—´ì„ ì´ˆê¸°í™”
 void reset() {
     for (int i = 0; i < 100; i++) {
         a[i] = -1;
@@ -85,7 +69,7 @@ int main() {
             cin >> tmp;
             b[j] = tmp;
         }
-        cout << jlis(-1, -1) - 2 << endl;   //ÃÖÃÊ ½ÃÀÛ À§Ä¡°¡ (-1, -1)ÀÌ¹Ç·Î 2¸¦ »©Áà¾ß ÇÑ´Ù.
+        cout << jlis(-1, -1) - 2 << endl;   //ìµœì´ˆ ì‹œìž‘ ìœ„ì¹˜ê°€ (-1, -1)ì´ë¯€ë¡œ 2ë¥¼ ë¹¼ì¤˜ì•¼ í•œë‹¤.
         reset();
     }
     return 0;

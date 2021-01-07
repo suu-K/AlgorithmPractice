@@ -1,43 +1,23 @@
-/*
-¹®Á¦ - ¿øÁÖÀ² ¿Ü¿ì±â(PI)(https://algospot.com/judge/problem/read/PI)
- °¡²û TV ¿¡ º¸¸é ¿øÁÖÀ²À» ¸î¸¸ ÀÚ¸®±îÁö ÁÙÁÙ ¿Ü¿ì´Â ½Åµ¿µéÀÌ µîÀåÇÏ°ï ÇÕ´Ï´Ù.
- ÀÌµéÀÌ ÀÌ ¼ö¸¦ ¿Ü¿ì±â À§ÇØ »ç¿ëÇÏ´Â ¹æ¹ý Áß ÇÏ³ª·Î, ¼ýÀÚ¸¦ ¸î ÀÚ¸® ÀÌ»ó ²÷¾î ¿Ü¿ì´Â °ÍÀÌ ÀÖ½À´Ï´Ù.
- ÀÌµéÀº ¼ýÀÚ¸¦ ¼¼ ÀÚ¸®¿¡¼­ ´Ù¼¸ ÀÚ¸®±îÁö·Î ²÷¾î¼­ ¿Ü¿ì´Âµ¥, °¡´ÉÇÏ¸é 55555 ³ª 123 °°ÀÌ ¿Ü¿ì±â ½¬¿î Á¶°¢µéÀÌ ¸¹ÀÌ µîÀåÇÏ´Â ¹æ¹ýÀ» ÅÃÇÏ°ï ÇÕ´Ï´Ù.
+ï»¿/*
+ë¬¸ì œ - ì›ì£¼ìœ¨ ì™¸ìš°ê¸°(PI)(https://algospot.com/judge/problem/read/PI)
 
- ÀÌ ¶§, °¢ Á¶°¢µéÀÇ ³­ÀÌµµ´Â ´ÙÀ½°ú °°ÀÌ Á¤ÇØÁý´Ï´Ù:
-    ¸ðµç ¼ýÀÚ°¡ °°À» ¶§ (¿¹: 333, 5555) ³­ÀÌµµ: 1
-    ¼ýÀÚ°¡ 1¾¿ ´ÜÁ¶ Áõ°¡ÇÏ°Å³ª ´ÜÁ¶ °¨¼ÒÇÒ ¶§ (¿¹: 23456, 3210) ³­ÀÌµµ: 2
-    µÎ °³ÀÇ ¼ýÀÚ°¡ ¹ø°¥¾Æ °¡¸ç ÃâÇöÇÒ ¶§ (¿¹: 323, 54545) ³­ÀÌµµ: 4
-    ¼ýÀÚ°¡ µîÂ÷ ¼ö¿­À» ÀÌ·ê ¶§ (¿¹: 147, 8642) ³­ÀÌµµ: 5
-    ±× ¿ÜÀÇ °æ¿ì ³­ÀÌµµ: 10
-
- ¿øÁÖÀ²ÀÇ ÀÏºÎ°¡ ÀÔ·ÂÀ¸·Î ÁÖ¾îÁú ¶§, ³­ÀÌµµÀÇ ÇÕÀ» ÃÖ¼ÒÈ­ÇÏµµ·Ï ¼ýÀÚµéÀ» 3ÀÚ¸®¿¡¼­ 5ÀÚ¸®±îÁö ²÷¾î ÀÐ°í ½Í½À´Ï´Ù
- ÃÖ¼ÒÀÇ ³­ÀÌµµ¸¦ °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
-
-ÀÔ·Â
- ÀÔ·ÂÀÇ Ã¹ ÁÙ¿¡´Â Å×½ºÆ® ÄÉÀÌ½ºÀÇ ¼ö C (<= 50) °¡ ÁÖ¾îÁý´Ï´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½º´Â 8±ÛÀÚ ÀÌ»ó 10000±ÛÀÚ ÀÌÇÏÀÇ ¼ýÀÚ·Î ÁÖ¾îÁý´Ï´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù ÇÑ ÁÙ¿¡ ÃÖ¼ÒÀÇ ³­ÀÌµµ¸¦ Ãâ·ÂÇÕ´Ï´Ù.
-
-Ç®ÀÌ
- ´Ü¼øÈ÷ ¿ÏÀüÅ½»öÀ¸·Î¸¸ Ç®¾úÀ» ¶§ ÀÚ¸®¼ö°¡ Å¬ ¶§ ¼ýÀÚ¸¦ 3~5ÀÚ¸®·Î ³ª´©´Â ¼ö°¡ ³Ê¹« ¸¹¾Æ ½Ã°£ÃÊ°ú°¡ ³µ´Ù.
- ÀÌ¸¦ ÁÙÀÌ±â À§ÇØ ¸Þ¸ðÀÌÁ¦ÀÌ¼ÇÀ» Àû¿ëÇß´õ´Ï ½Ã°£ ¾È¿¡ Ç®·È´Ù.
- ÀÔ·Â¹ÞÀº ¼ýÀÚ¸¦ °¢ ÀÚ¸´¼öº°·Î ²÷¾î ¼ö¿­·Î ³ª´©°í ÇØ´ç ¼ö¿­À» 3,4,5·Î °¢°¢ ²÷¾î¼­ °Ë»çÇØ Àç±ÍÇÔ¼ö¸¦ ÀÌ¿ëÇØ ¿ÏÀüÅ½»öÀ» ÇÏ¿´´Ù.
+í’€ì´
+ ë‹¨ìˆœížˆ ì™„ì „íƒìƒ‰ìœ¼ë¡œë§Œ í’€ì—ˆì„ ë•Œ ìžë¦¬ìˆ˜ê°€ í´ ë•Œ ìˆ«ìžë¥¼ 3~5ìžë¦¬ë¡œ ë‚˜ëˆ„ëŠ” ìˆ˜ê°€ ë„ˆë¬´ ë§Žì•„ ì‹œê°„ì´ˆê³¼ê°€ ë‚¬ë‹¤.
+ ì´ë¥¼ ì¤„ì´ê¸° ìœ„í•´ ë©”ëª¨ì´ì œì´ì…˜ì„ ì ìš©í–ˆë”ë‹ˆ ì‹œê°„ ì•ˆì— í’€ë ¸ë‹¤.
+ ìž…ë ¥ë°›ì€ ìˆ«ìžë¥¼ ê° ìžë¦¿ìˆ˜ë³„ë¡œ ëŠì–´ ìˆ˜ì—´ë¡œ ë‚˜ëˆ„ê³  í•´ë‹¹ ìˆ˜ì—´ì„ 3,4,5ë¡œ ê°ê° ëŠì–´ì„œ ê²€ì‚¬í•´ ìž¬ê·€í•¨ìˆ˜ë¥¼ ì´ìš©í•´ ì™„ì „íƒìƒ‰ì„ í•˜ì˜€ë‹¤.
 */
 
 
 #include <iostream>
-#define MAXNUM 100000   //°¡Àå Å« ³­ÀÌµµÀÏ¶§º¸´Ù Å« °ª
+#define MAXNUM 100000   //ê°€ìž¥ í° ë‚œì´ë„ì¼ë•Œë³´ë‹¤ í° ê°’
 
 using namespace std;
 
-int arr[10000];     //ÀÔ·Â¹ÞÀº ¼ýÀÚ¸¦ ÇÑÀÚ¸®¾¿ ²÷Àº ¹è¿­
-int cache[10000];   //¸Þ¸ðÀÌÁ¦ÀÌ¼Ç ¿ë ¹è¿­
-int n = 0;          //ÀÔ·Â¹ÞÀº ¼öÀÇ ÀÚ¸´¼ö
+int arr[10000];     //ìž…ë ¥ë°›ì€ ìˆ«ìžë¥¼ í•œìžë¦¬ì”© ëŠì€ ë°°ì—´
+int cache[10000];   //ë©”ëª¨ì´ì œì´ì…˜ ìš© ë°°ì—´
+int n = 0;          //ìž…ë ¥ë°›ì€ ìˆ˜ì˜ ìžë¦¿ìˆ˜
 
-void reset() {      //Å×½ºÆ® ÄÉÀÌ½º°¡ ³¡³µÀ» ‹š ÃÊ±âÈ­ ÇÔ¼ö
+void reset() {      //í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ê°€ ëë‚¬ì„ ë–„ ì´ˆê¸°í™” í•¨ìˆ˜
     for (int i = 0; i < 10000; i++) {
         arr[i] = -1;
         cache[i] = MAXNUM;
@@ -46,7 +26,7 @@ void reset() {      //Å×½ºÆ® ÄÉÀÌ½º°¡ ³¡³µÀ» ‹š ÃÊ±âÈ­ ÇÔ¼ö
     return;
 }
 
-int check(int idx, int n) { //ÀÎµ¦½º ÁÖ¼Ò°¡ ÁÖ¾îÁ³À» ¶§ ¼ýÀÚ n°³ÀÇ ³­ÀÌµµ Á¶»ç
+int check(int idx, int n) { //ì¸ë±ìŠ¤ ì£¼ì†Œê°€ ì£¼ì–´ì¡Œì„ ë•Œ ìˆ«ìž nê°œì˜ ë‚œì´ë„ ì¡°ì‚¬
     bool same = true;
     int inc = arr[idx + 1] - arr[idx];
 
@@ -56,30 +36,30 @@ int check(int idx, int n) { //ÀÎµ¦½º ÁÖ¼Ò°¡ ÁÖ¾îÁ³À» ¶§ ¼ýÀÚ n°³ÀÇ ³­ÀÌµµ Á¶»ç
         if (arr[idx + i] - arr[idx + i - 1] != inc)
             inc = 0;
     }
-    if (same)       //¸ðµç ¼ýÀÚ°¡ °°À» ‹š
+    if (same)       //ëª¨ë“  ìˆ«ìžê°€ ê°™ì„ ë–„
         return 1;
-    else if (inc == 1 || inc == -1)  //´ÜÁ¶ Áõ°¡ È¤Àº ´ÜÁ¶ °¨¼ÒÀÏ¶§
+    else if (inc == 1 || inc == -1)  //ë‹¨ì¡° ì¦ê°€ í˜¹ì€ ë‹¨ì¡° ê°ì†Œì¼ë•Œ
         return 2;
-    else if (inc != 0)  //µîÂ÷¼ö¿­À» ÀÌ·ê ‹š
+    else if (inc != 0)  //ë“±ì°¨ìˆ˜ì—´ì„ ì´ë£° ë–„
         return 5;
 
-    for (int i = 0; i < n - 2; i++) {   //¼ýÀÚ°¡ ¹Ýº¹µÇÁöµµ ¾ÊÀ» ¶§
+    for (int i = 0; i < n - 2; i++) {   //ìˆ«ìžê°€ ë°˜ë³µë˜ì§€ë„ ì•Šì„ ë•Œ
         if (arr[idx + i] != arr[idx + i + 2])
             return 10;
     }
-    return 4;       //¼ýÀÚ°¡ ¹Ýº¹µÇ¾î ³ªÅ¸³¯ ‹š
+    return 4;       //ìˆ«ìžê°€ ë°˜ë³µë˜ì–´ ë‚˜íƒ€ë‚  ë–„
 }
 
-int piLevel(int idx) {          //³­ÀÌµµ Á¶»ç ÇÔ¼ö
+int piLevel(int idx) {          //ë‚œì´ë„ ì¡°ì‚¬ í•¨ìˆ˜
     int& ret = cache[idx];
-    if (ret != MAXNUM)          //¸¸¾à °è»êÇØ ³õÀº °ªÀÌ ÀÌ¹Ì ÀÖ´Ù¸é ¹ÝÈ¯
+    if (ret != MAXNUM)          //ë§Œì•½ ê³„ì‚°í•´ ë†“ì€ ê°’ì´ ì´ë¯¸ ìžˆë‹¤ë©´ ë°˜í™˜
         return ret;
-    int rest = n - idx;         //³²Àº ¼ýÀÚÀÇ °³¼ö
-    if (rest < 3)               //³²Àº ¼ýÀÚ°¡ 3°³ ÀÌÇÏ¸é ÃÖ´ë°ª ¹ÝÈ¯
+    int rest = n - idx;         //ë‚¨ì€ ìˆ«ìžì˜ ê°œìˆ˜
+    if (rest < 3)               //ë‚¨ì€ ìˆ«ìžê°€ 3ê°œ ì´í•˜ë©´ ìµœëŒ€ê°’ ë°˜í™˜
         return ret;
-    else if (rest >= 3 && rest <= 5)    //³²Àº ¼ýÀÚ°¡ 3~5°³¸é °Ë»ç
+    else if (rest >= 3 && rest <= 5)    //ë‚¨ì€ ìˆ«ìžê°€ 3~5ê°œë©´ ê²€ì‚¬
         return check(idx, rest);
-    for (int i = 3; i <= 5; i++)       //3,4,5°³¾¿ ²÷¾î¼­ °¢°¢ °Ë»çÇØº¸±â
+    for (int i = 3; i <= 5; i++)       //3,4,5ê°œì”© ëŠì–´ì„œ ê°ê° ê²€ì‚¬í•´ë³´ê¸°
         ret = min(ret, check(idx, i) + piLevel(idx + i));
     return ret;
 }

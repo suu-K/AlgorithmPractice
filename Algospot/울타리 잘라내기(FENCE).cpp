@@ -1,27 +1,9 @@
-/*
-¹®Á¦ - ¿ïÅ¸¸® Àß¶ó³»±â(FENCE)(https://algospot.com/judge/problem/read/FENCE)
- ³Êºñ°¡ °°Àº N°³ÀÇ ³ª¹« ÆÇÀÚ¸¦ ºÙ¿© ¼¼¿î ¿ïÅ¸¸®°¡ ÀÖ½À´Ï´Ù.
- ½Ã°£ÀÌ Áö³²¿¡ µû¶ó ÆÇÀÚµéÀÌ ºÎ·¯Áö°Å³ª ¸Á°¡Á® ³ôÀÌ°¡ ´Ù ´Þ¶óÁø °ü°è·Î ¿ïÅ¸¸®¸¦ ÅëÂ°·Î ±³Ã¼ÇÏ±â·Î Çß½À´Ï´Ù.
- ÀÌ ¶§ ¹ö¸®´Â ¿ïÅ¸¸®ÀÇ ÀÏºÎ¸¦ Á÷»ç°¢ÇüÀ¸·Î Àß¶ó³» ÀçÈ°¿ëÇÏ°í ½Í½À´Ï´Ù.
- ±×¸² (b)´Â (a)ÀÇ ¿ïÅ¸¸®¿¡¼­ Àß¶ó³¾ ¼ö ÀÖ´Â ¸¹Àº Á÷»ç°¢Çü Áß °¡Àå ³ÐÀº Á÷»ç°¢ÇüÀ» º¸¿©ÁÝ´Ï´Ù.
- ¿ïÅ¸¸®¸¦ ±¸¼ºÇÏ´Â °¢ ÆÇÀÚÀÇ ³ôÀÌ°¡ ÁÖ¾îÁú ¶§, Àß¶ó³¾ ¼ö ÀÖ´Â Á÷»ç°¢ÇüÀÇ ÃÖ´ë Å©±â¸¦ °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
- ´Ü (c)Ã³·³ Á÷»ç°¢ÇüÀ» ºñ½ºµëÈ÷ Àß¶ó³¾ ¼ö´Â ¾ø½À´Ï´Ù.
+ï»¿/*
+ë¬¸ì œ - ìš¸íƒ€ë¦¬ ìž˜ë¼ë‚´ê¸°(FENCE)(https://algospot.com/judge/problem/read/FENCE)
 
- ÆÇÀÚÀÇ ³Êºñ´Â ¸ðµÎ 1ÀÌ¶ó°í °¡Á¤ÇÕ´Ï´Ù.
-
-ÀÔ·Â
- Ã¹ ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö C (C¡Â50)°¡ ÁÖ¾îÁý´Ï´Ù.
- °¢ Å×½ºÆ® ÄÉÀÌ½ºÀÇ Ã¹ ÁÙ¿¡´Â ÆÇÀÚÀÇ ¼ö N (1¡ÂN¡Â20000)ÀÌ ÁÖ¾îÁý´Ï´Ù.
- ±× ´ÙÀ½ ÁÙ¿¡´Â N°³ÀÇ Á¤¼ö·Î ¿ÞÂÊºÎÅÍ °¢ ÆÇÀÚÀÇ ³ôÀÌ°¡ ¼ø¼­´ë·Î ÁÖ¾îÁý´Ï´Ù.
- ³ôÀÌ´Â ¸ðµÎ 10,000 ÀÌÇÏÀÇ À½ÀÌ ¾Æ´Ñ Á¤¼öÀÔ´Ï´Ù.
-
-Ãâ·Â
- °¢ Å×½ºÆ® ÄÉÀÌ½º´ç Á¤¼ö ÇÏ³ª¸¦ ÇÑ ÁÙ¿¡ Ãâ·ÂÇÕ´Ï´Ù.
- ÀÌ Á¤¼ö´Â ÁÖ¾îÁø ¿ïÅ¸¸®¿¡¼­ Àß¶ó³¾ ¼ö ÀÖ´Â ÃÖ´ë Á÷»ç°¢ÇüÀÇ Å©±â¸¦ ³ªÅ¸³»¾ß ÇÕ´Ï´Ù.
-
- Ç®ÀÌ
-  ±âÁØÀÌ µÇ´Â ÆÇÀÚÀÇ ³ôÀÌ¿¡¼­ ±¸ÇÒ ¼ö ÀÖ´Â ÃÖ´ë ³Êºñ¸¦ ±¸ÇÏ¿´´Ù.
-  i¹ø ÆÇÀÚÀÇ ³ôÀÌ°¡ h¶ó°í ÇÏ¸é h¿Í °°°Å³ª ³ôÀº ¿¬¼ÓµÈ ÆÇÀÚÀÇ ³Êºñ¸¦ ±¸ÇØ¼­ ³ÐÀÌ¸¦ ±¸ÇÏ´Â ½ÄÀ¸·Î ÇÏ¿´´Ù.
+ í’€ì´
+  ê¸°ì¤€ì´ ë˜ëŠ” íŒìžì˜ ë†’ì´ì—ì„œ êµ¬í•  ìˆ˜ ìžˆëŠ” ìµœëŒ€ ë„ˆë¹„ë¥¼ êµ¬í•˜ì˜€ë‹¤.
+  ië²ˆ íŒìžì˜ ë†’ì´ê°€ hë¼ê³  í•˜ë©´ hì™€ ê°™ê±°ë‚˜ ë†’ì€ ì—°ì†ëœ íŒìžì˜ ë„ˆë¹„ë¥¼ êµ¬í•´ì„œ ë„“ì´ë¥¼ êµ¬í•˜ëŠ” ì‹ìœ¼ë¡œ í•˜ì˜€ë‹¤.
 */
 #include <iostream>
 #include <vector>
@@ -29,17 +11,17 @@
 using namespace std;
 
 int maxSize(vector<int>& fence) {
-    int maxSize = 0;    //ÃÖ´ë ³ÐÀÌ
+    int maxSize = 0;    //ìµœëŒ€ ë„“ì´
     int h = 0, w = 0, left = 0, right = 0;
     for (int i = 0; i < fence.size(); i++) {
-        h = fence[i];   //±âÁØÀÌ µÇ´Â Ææ½ºÀÇ ³ôÀÌ
-        left = i;       //°¡Àå ¿ÞÂÊ ÆÇÀÚ
-        maxSize = max(maxSize, fence[left]);    //ÆÇÀÚ ÇÏ³ªÀÇ ³ÐÀÌ
-        right = i + 1;                          //°¡Àå ¿À¸¥ÂÊ ÆÇÀÚ
-        while (left >= 0 && fence[left] >= h) { left--; } left++;       //°¡Àå ¿ÞÂÊ¿¡ ÀÖ´Â ÇöÀç ³ôÀÌº¸´Ù ÀÛÁö ¾ÊÀº ¿¬¼ÓµÈ ÆÇÀÚ
-        while (right < fence.size() && fence[right] >= h) { right++; }  //°¡Àå ¿À¸¥ÂÊ¿¡ ÀÖ´Â ÇöÀç ³ôÀÌº¸´Ù ÀÛÁö ¾ÊÀº ¿¬¼ÓµÈ ÆÇÀÚ
-        w = right - left;   //ÆÇÀÚÀÇ ³Êºñ
-        maxSize = max(maxSize, h * w);  //ÆÇÀÚÀÇ ÃÖ´ë ³ÐÀÌ
+        h = fence[i];   //ê¸°ì¤€ì´ ë˜ëŠ” íŽœìŠ¤ì˜ ë†’ì´
+        left = i;       //ê°€ìž¥ ì™¼ìª½ íŒìž
+        maxSize = max(maxSize, fence[left]);    //íŒìž í•˜ë‚˜ì˜ ë„“ì´
+        right = i + 1;                          //ê°€ìž¥ ì˜¤ë¥¸ìª½ íŒìž
+        while (left >= 0 && fence[left] >= h) { left--; } left++;       //ê°€ìž¥ ì™¼ìª½ì— ìžˆëŠ” í˜„ìž¬ ë†’ì´ë³´ë‹¤ ìž‘ì§€ ì•Šì€ ì—°ì†ëœ íŒìž
+        while (right < fence.size() && fence[right] >= h) { right++; }  //ê°€ìž¥ ì˜¤ë¥¸ìª½ì— ìžˆëŠ” í˜„ìž¬ ë†’ì´ë³´ë‹¤ ìž‘ì§€ ì•Šì€ ì—°ì†ëœ íŒìž
+        w = right - left;   //íŒìžì˜ ë„ˆë¹„
+        maxSize = max(maxSize, h * w);  //íŒìžì˜ ìµœëŒ€ ë„“ì´
     }
     return maxSize;
 }
